@@ -26,7 +26,7 @@ const Navbar: React.FC = () => {
     >
       <div className="container flex items-center justify-between">
         <a href="#" className="flex items-center">
-          <img src="/assets/logos/1.png" alt="IngVox Logo" className="h-16" />
+          <img src="../../assets/logos/1.png" alt="IngVox Logo" className="h-16" />
         </a>
         
         <nav className="hidden md:flex items-center space-x-10">

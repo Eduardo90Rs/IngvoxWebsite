@@ -8,7 +8,7 @@ const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           <div>
             <a href="#" className="flex items-center mb-6">
-              <img src="/assets/logos/3.png" alt="IngVox Logo" className="h-16" />
+              <img src="../../assets/logos/3.png" alt="IngVox Logo" className="h-16" />
             </a>
             
             <div className="max-w-md">
