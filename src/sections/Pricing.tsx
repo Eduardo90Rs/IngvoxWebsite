@@ -56,23 +56,23 @@ const Pricing: React.FC = () => {
   ];
 
   return (
-    <section id="plans" className="section bg-light-cream">
+    <section id="plans" className="section bg-brand-bg-secondary">
       <div className="container">
-        <h2 className="section-title">Planos e Preços</h2>
+        <h2 className="section-title accent-underline">Planos e Preços</h2>
         
         <div className="flex justify-center mb-12">
-          <div className="bg-golden-beige/30 p-1 rounded-full inline-flex">
+          <div className="bg-brand-highlight/20 p-1 rounded-full inline-flex">
             <button
-              className={`px-6 py-2 rounded-full text-sm font-medium transition-all ${
-                !isAnnual ? 'bg-white shadow-md' : 'text-dark-bluish-gray'
+              className={`px-6 py-2 rounded-full text-sm font-medium transition-all font-poppins ${
+                !isAnnual ? 'bg-brand-bg-primary shadow-soft text-brand-text' : 'text-brand-text/70'
               }`}
               onClick={() => setIsAnnual(false)}
             >
               Pagamento Mensal
             </button>
             <button
-              className={`px-6 py-2 rounded-full text-sm font-medium transition-all ${
-                isAnnual ? 'bg-white shadow-md' : 'text-dark-bluish-gray'
+              className={`px-6 py-2 rounded-full text-sm font-medium transition-all font-poppins ${
+                isAnnual ? 'bg-brand-bg-primary shadow-soft text-brand-text' : 'text-brand-text/70'
               }`}
               onClick={() => setIsAnnual(true)}
             >
@@ -87,45 +87,45 @@ const Pricing: React.FC = () => {
               key={index}
               className={`card relative overflow-hidden ${
                 plan.highlight 
-                  ? 'border-2 border-royal-blue transform md:-translate-y-4'
-                  : ''
+                  ? 'border-2 border-brand-accent transform md:-translate-y-4 bg-brand-bg-primary'
+                  : 'bg-brand-bg-primary'
               }`}
             >
               {plan.highlight && (
-                <div className="absolute top-0 left-0 right-0 bg-royal-blue text-white text-center py-1 text-sm font-medium">
+                <div className="absolute top-0 left-0 right-0 bg-brand-accent text-brand-bg-secondary text-center py-2 text-sm font-medium font-poppins">
                   Mais Popular
                 </div>
               )}
               
-              <div className={`p-6 ${plan.highlight ? 'pt-8' : ''}`}>
-                <h3 className="text-xl font-bold mb-2">{plan.name}</h3>
+              <div className={`p-6 ${plan.highlight ? 'pt-10' : ''}`}>
+                <h3 className="text-xl font-bold mb-2 font-montserrat text-brand-text">{plan.name}</h3>
                 
                 {plan.discount && (
-                  <span className="inline-block bg-forest-green/20 text-forest-green text-xs font-semibold px-2 py-1 rounded-full mb-3">
+                  <span className="inline-block bg-brand-accent/20 text-brand-accent text-xs font-semibold px-3 py-1 rounded-full mb-3 font-poppins">
                     {plan.discount}
                   </span>
                 )}
                 
-                <div className="mb-4">
-                  <span className="text-4xl font-bold">R$ {plan.price?.toFixed(2).replace('.', ',')}</span>
-                  <span className="text-dark-bluish-gray">{plan.period}</span>
-                  <div className="text-sm text-dark-bluish-gray">{plan.billed}</div>
+                <div className="mb-6">
+                  <span className="text-4xl font-bold text-brand-text font-montserrat">R$ {plan.price?.toFixed(2).replace('.', ',')}</span>
+                  <span className="text-brand-text/70 font-poppins">{plan.period}</span>
+                  <div className="text-sm text-brand-text/60 font-poppins">{plan.billed}</div>
                 </div>
                 
                 <ul className="space-y-3 mb-8">
                   {plan.features.map((feature, i) => (
                     <li key={i} className="flex items-start">
-                      <Check className="h-5 w-5 text-forest-green mr-2 flex-shrink-0" />
-                      <span className="text-dark-bluish-gray">{feature}</span>
+                      <Check className="h-5 w-5 text-brand-accent mr-3 flex-shrink-0 mt-0.5" />
+                      <span className="text-brand-text/80 font-poppins">{feature}</span>
                     </li>
                   ))}
                 </ul>
                 
                 <button 
-                  className={`w-full py-3 rounded-lg font-medium ${
+                  className={`w-full py-3 rounded-full font-medium transition-all duration-300 font-poppins ${
                     plan.highlight 
-                      ? 'bg-royal-blue hover:bg-deep-dark-blue text-white'
-                      : 'bg-golden-beige/30 hover:bg-golden-beige/50 text-deep-dark-blue'
+                      ? 'bg-brand-accent hover:bg-brand-accent/90 text-brand-bg-secondary shadow-soft'
+                      : 'bg-brand-highlight/20 hover:bg-brand-highlight/30 text-brand-text'
                   }`}
                 >
                   {plan.name === 'Mensal' || plan.name === 'Trimestral' 
@@ -133,7 +133,7 @@ const Pricing: React.FC = () => {
                     : 'Assinar Agora'}
                 </button>
                 
-                <p className="text-xs text-center text-dark-bluish-gray mt-4">
+                <p className="text-xs text-center text-brand-text/60 mt-4 font-poppins">
                   Sem surpresas. Cancele quando quiser.
                 </p>
               </div>
@@ -141,7 +141,7 @@ const Pricing: React.FC = () => {
           ))}
         </div>
         
-        <div className="text-center mt-10 text-dark-bluish-gray">
+        <div className="text-center mt-12 text-brand-text/80 font-poppins">
           <p>Sem surpresas. Sem anúncios. Só fluência.</p>
         </div>
       </div>

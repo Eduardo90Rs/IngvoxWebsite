@@ -27,18 +27,18 @@ const Testimonials: React.FC = () => {
   ];
 
   return (
-    <section className="section bg-white">
+    <section className="section bg-brand-bg-primary">
       <div className="container">
-        <h2 className="section-title">O que nossos usuários dizem</h2>
+        <h2 className="section-title accent-underline">O que nossos usuários dizem</h2>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
           {testimonials.map((testimonial, index) => (
             <div 
               key={index}
-              className="card card-hover"
+              className="card card-hover border border-brand-highlight/10"
             >
-              <div className="flex items-center mb-4">
-                <div className="w-12 h-12 rounded-full overflow-hidden mr-3">
+              <div className="flex items-center mb-6">
+                <div className="w-12 h-12 rounded-full overflow-hidden mr-4 ring-2 ring-brand-highlight/20">
                   <img 
                     src={testimonial.image} 
                     alt={testimonial.name} 
@@ -46,20 +46,27 @@ const Testimonials: React.FC = () => {
                   />
                 </div>
                 <div>
-                  <h3 className="font-bold">{testimonial.name}</h3>
-                  <p className="text-sm text-dark-bluish-gray">{testimonial.location}</p>
+                  <h3 className="font-bold font-montserrat text-brand-text">{testimonial.name}</h3>
+                  <p className="text-sm text-brand-text/70 font-poppins">{testimonial.location}</p>
                 </div>
               </div>
               
-              <div className="flex mb-3">
+              <div className="flex mb-4">
                 {[...Array(testimonial.stars)].map((_, i) => (
-                  <Star key={i} className="w-4 h-4 text-golden-beige fill-current" />
+                  <Star key={i} className="w-4 h-4 text-brand-accent fill-current" />
                 ))}
               </div>
               
-              <p className="text-dark-bluish-gray italic">"{testimonial.text}"</p>
+              <p className="text-brand-text/80 italic font-poppins leading-relaxed">"{testimonial.text}"</p>
             </div>
           ))}
+        </div>
+        
+        <div className="mt-16 text-center">
+          <div className="inline-flex items-center space-x-2 bg-brand-bg-secondary px-6 py-3 rounded-full">
+            <Star className="w-5 h-5 text-brand-accent fill-current" />
+            <span className="font-medium text-brand-text font-poppins">4.9/5 baseado em +10.000 avaliações</span>
+          </div>
         </div>
       </div>
     </section>

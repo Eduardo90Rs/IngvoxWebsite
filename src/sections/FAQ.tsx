@@ -32,25 +32,25 @@ const FAQ: React.FC = () => {
   };
 
   return (
-    <section id="faq" className="section bg-white">
+    <section id="faq" className="section bg-brand-bg-secondary">
       <div className="container max-w-4xl">
-        <h2 className="section-title">Perguntas Frequentes</h2>
+        <h2 className="section-title accent-underline">Perguntas Frequentes</h2>
         
         <div className="mt-10 space-y-4">
           {faqs.map((faq, index) => (
             <div 
               key={index}
-              className="border border-gray-200 rounded-lg overflow-hidden"
+              className="border border-brand-highlight/20 rounded-xl overflow-hidden bg-brand-bg-primary"
             >
               <button
-                className="w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none"
+                className="w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none hover:bg-brand-highlight/5 transition-colors font-poppins"
                 onClick={() => toggleFaq(index)}
               >
-                <h3 className="text-lg font-medium">{faq.question}</h3>
+                <h3 className="text-lg font-medium font-montserrat text-brand-text">{faq.question}</h3>
                 {openIndex === index ? (
-                  <ChevronUp className="h-5 w-5 text-gray-500" />
+                  <ChevronUp className="h-5 w-5 text-brand-accent" />
                 ) : (
-                  <ChevronDown className="h-5 w-5 text-gray-500" />
+                  <ChevronDown className="h-5 w-5 text-brand-accent" />
                 )}
               </button>
               
@@ -59,17 +59,17 @@ const FAQ: React.FC = () => {
                   openIndex === index ? 'max-h-96 pb-6' : 'max-h-0'
                 }`}
               >
-                <p className="text-gray-600">{faq.answer}</p>
+                <p className="text-brand-text/80 font-poppins leading-relaxed">{faq.answer}</p>
               </div>
             </div>
           ))}
         </div>
         
         <div className="mt-12 text-center">
-          <p className="text-gray-600 mb-6">Ainda tem dúvidas?</p>
+          <p className="text-brand-text/70 mb-6 font-poppins">Ainda tem dúvidas?</p>
           <a 
             href="mailto:contato@ingvox.com" 
-            className="text-blue-600 hover:text-blue-800 font-medium"
+            className="text-brand-accent hover:text-brand-highlight font-medium font-poppins transition-colors"
           >
             Entre em contato conosco
           </a>

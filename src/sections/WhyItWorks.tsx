@@ -17,22 +17,22 @@ const WhyItWorks: React.FC = () => {
   ];
 
   return (
-    <section className="section bg-light-cream">
+    <section className="section bg-brand-bg-secondary">
       <div className="container">
-        <h2 className="section-title">Por que Funciona?</h2>
+        <h2 className="section-title accent-underline">Por que Funciona?</h2>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
           {reasons.map((reason, index) => (
             <div 
               key={index}
-              className="relative overflow-hidden"
+              className="relative overflow-hidden group"
             >
-              <div className="card h-full flex flex-col p-8 bg-white hover:bg-soft-lilac/20 transition-all duration-500">
-                <h3 className="text-xl md:text-2xl font-bold mb-4 text-deep-dark-blue">{reason.title}</h3>
-                <p className="text-dark-bluish-gray leading-relaxed">{reason.description}</p>
+              <div className="card h-full flex flex-col p-8 hover:bg-brand-bg-primary transition-all duration-500 border border-brand-highlight/10 group-hover:border-brand-accent/30">
+                <h3 className="text-xl md:text-2xl font-bold mb-6 text-brand-text font-montserrat leading-tight">{reason.title}</h3>
+                <p className="text-brand-text/80 leading-relaxed font-poppins">{reason.description}</p>
                 
                 <div className="absolute top-0 right-0 h-16 w-16 transform translate-x-8 -translate-y-8">
-                  <div className="w-full h-full bg-soft-lilac opacity-20 rounded-full"></div>
+                  <div className="w-full h-full bg-brand-highlight opacity-20 rounded-full group-hover:bg-brand-accent group-hover:opacity-30 transition-all duration-500"></div>
                 </div>
               </div>
             </div>
@@ -41,7 +41,7 @@ const WhyItWorks: React.FC = () => {
         
         <div className="mt-16 text-center">
           <a href="#plans" className="btn btn-primary">
-            Experimenter agora
+            Experimentar agora
           </a>
         </div>
       </div>
