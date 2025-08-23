@@ -37,34 +37,49 @@ export const usePasswordReset = () => {
   // Validação do token na URL
   useEffect(() => {
     const checkToken = async () => {
-      const hashParams = new URLSearchParams(window.location.hash.substring(1));
-      const accessToken = hashParams.get('access_token');
-      const type = hashParams.get('type');
+      try {
+        // Debug: Log da URL completa
+        console.log('Full URL:', window.location.href);
+        console.log('Hash:', window.location.hash);
+        
+        const hash = window.location.hash.substring(1);
+        console.log('Processed hash:', hash);
+        
+        const hashParams = new URLSearchParams(hash);
+        const accessToken = hashParams.get('access_token');
+        const type = hashParams.get('type');
+        
+        console.log('Access token:', accessToken);
+        console.log('Type:', type);
 
-      // Para desenvolvimento - permite acesso sem token se estiver em localhost
-      const isDevelopment = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
-      
-      if (!accessToken || type !== 'recovery') {
-        if (isDevelopment) {
-          // Em desenvolvimento, permite acesso para teste
-          setTokenValid(true);
+        // Para desenvolvimento - permite acesso sem token se estiver em localhost
+        const isDevelopment = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+        
+        if (!accessToken || type !== 'recovery') {
+          if (isDevelopment) {
+            console.log('Development mode: allowing access without token');
+            setTokenValid(true);
+            return;
+          }
+          console.log('No valid token found, redirecting to home');
+          navigate('/', { replace: true });
           return;
         }
-        // Token inválido - redireciona para home
-        navigate('/', { replace: true });
-        return;
-      }
 
-      try {
+        console.log('Valid token found, checking with Supabase...');
+        
         // Verifica se o token é válido no Supabase
         const { data, error } = await supabase.auth.getUser(accessToken);
         if (error || !data.user) {
+          console.log('Supabase token validation failed:', error);
           navigate('/', { replace: true });
           return;
         }
         
+        console.log('Token validated successfully');
         setTokenValid(true);
-      } catch {
+      } catch (error) {
+        console.error('Error in token validation:', error);
         navigate('/', { replace: true });
       }
     };

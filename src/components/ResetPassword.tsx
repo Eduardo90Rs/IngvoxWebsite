@@ -21,9 +21,35 @@ const ResetPassword: React.FC = () => {
     getPasswordStrength
   } = usePasswordReset();
 
+  // Verificar se Supabase está configurado
+  const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+  const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
+  
+  if (!supabaseUrl || !supabaseKey || supabaseUrl === 'YOUR_SUPABASE_URL' || supabaseKey === 'YOUR_SUPABASE_ANON_KEY') {
+    return (
+      <div className="min-h-screen bg-brand-bg-primary flex items-center justify-center p-4">
+        <div className="bg-red-50 border border-red-200 rounded-xl p-8 max-w-md">
+          <h1 className="text-xl font-bold text-red-800 mb-4">Configuração Incompleta</h1>
+          <p className="text-red-700 mb-4">As variáveis de ambiente do Supabase não estão configuradas.</p>
+          <div className="text-sm text-red-600 font-mono">
+            <p>VITE_SUPABASE_URL: {supabaseUrl || 'MISSING'}</p>
+            <p>VITE_SUPABASE_ANON_KEY: {supabaseKey ? 'SET' : 'MISSING'}</p>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   // Não renderizar nada até validar o token
   if (!tokenValid) {
-    return null;
+    return (
+      <div className="min-h-screen bg-brand-bg-primary flex items-center justify-center p-4">
+        <div className="bg-brand-bg-secondary rounded-xl p-8 max-w-md text-center">
+          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-brand-accent mx-auto mb-4"></div>
+          <p className="text-brand-text">Validando token...</p>
+        </div>
+      </div>
+    );
   }
 
   // Estado de sucesso
