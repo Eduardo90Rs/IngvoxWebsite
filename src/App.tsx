@@ -1,3 +1,4 @@
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Hero from './sections/Hero';
 import HowItWorks from './sections/HowItWorks';
@@ -6,19 +7,33 @@ import WhyItWorks from './sections/WhyItWorks';
 import Testimonials from './sections/Testimonials';
 import FAQ from './sections/FAQ';
 import Footer from './sections/Footer';
+import ResetPassword from './components/ResetPassword';
+
+// Componente da página principal
+const HomePage = () => (
+  <div className="min-h-screen bg-brand-bg-primary">
+    <Navbar />
+    <Hero />
+    <HowItWorks />
+    <Languages />
+    <WhyItWorks />
+    <Testimonials />
+    <FAQ />
+    <Footer />
+  </div>
+);
 
 function App() {
   return (
-    <div className="min-h-screen bg-brand-bg-primary">
-      <Navbar />
-      <Hero />
-      <HowItWorks />
-      <Languages />
-      <WhyItWorks />
-      <Testimonials />
-      <FAQ />
-      <Footer />
-    </div>
+    <Router>
+      <Routes>
+        {/* Página principal */}
+        <Route path="/" element={<HomePage />} />
+        
+        {/* Rota isolada para reset de senha - apenas acessível via token do email */}
+        <Route path="/reset-password" element={<ResetPassword />} />
+      </Routes>
+    </Router>
   );
 }
 
