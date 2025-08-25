@@ -1,31 +1,35 @@
 import { createClient } from '@supabase/supabase-js';
 
-// Configuração do cliente Supabase - usando placeholders válidos para evitar crashes
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || 'https://placeholder.supabase.co';
-const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.placeholder';
+// HARDCODE TEMPORÁRIO - Substitua com variáveis de ambiente quando funcionarem
+const SUPABASE_URL = 'https://kaegprhqiipriovwghecn.supabase.co';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJodHRwczovL2thZWdwcmhxaWlwcmlvd2duZWNuLnN1cGFiYXNlLmNvL2F1dGgvdjEiLCJyb2xlIjoiYW5vbiIsImlhdCI6MTczMTUxMDMxNCwiZXhwIjoyMDQ3MDg2MzE0fQ.sb_publishable_pnFS2dMvCxyYmVWTETwLOA_0nt-K38s';
 
-// Debug: Log detalhado das variáveis de ambiente
+// Tentar usar variáveis de ambiente primeiro, fallback para hardcode
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || SUPABASE_URL;
+const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY || SUPABASE_ANON_KEY;
+
+// Debug: Log detalhado
 console.log('=== SUPABASE CONFIGURATION DEBUG ===');
-console.log('Supabase URL:', supabaseUrl);
-console.log('Supabase Key exists:', !!supabaseAnonKey && supabaseAnonKey !== 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.placeholder');
-console.log('Environment:', import.meta.env.MODE);
-console.log('All env vars:', Object.keys(import.meta.env).filter(key => key.startsWith('VITE_')));
+console.log('ENV URL:', import.meta.env.VITE_SUPABASE_URL);
+console.log('ENV KEY:', import.meta.env.VITE_SUPABASE_ANON_KEY ? 'EXISTS' : 'MISSING');
+console.log('Using URL:', supabaseUrl);
+console.log('Using KEY:', supabaseAnonKey ? 'EXISTS' : 'MISSING');
+console.log('URL Length:', supabaseUrl.length);
+console.log('URL includes supabase.co:', supabaseUrl.includes('supabase.co'));
 
-// Verifica se as variáveis estão configuradas
-const isPlaceholder = supabaseUrl === 'https://placeholder.supabase.co' || 
-                     supabaseAnonKey === 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.placeholder';
-
-if (isPlaceholder) {
-  console.error('⚠️ SUPABASE ENV VARS NOT CONFIGURED!');
-  console.error('Expected variables:');
-  console.error('- VITE_SUPABASE_URL (current: ' + (import.meta.env.VITE_SUPABASE_URL || 'undefined') + ')');
-  console.error('- VITE_SUPABASE_ANON_KEY (current: ' + (import.meta.env.VITE_SUPABASE_ANON_KEY ? 'set' : 'undefined') + ')');
-  console.error('Make sure these are configured in Vercel Dashboard');
+// Verificar se a URL está completa
+if (supabaseUrl && !supabaseUrl.includes('supabase.co')) {
+  console.error('⚠️ CRITICAL: Supabase URL is malformed!');
+  console.error('Expected: https://kaegprhqiipriovwghecn.supabase.co');
+  console.error('Got:', supabaseUrl);
 }
 
-// Validação adicional de formato
-if (!isPlaceholder && supabaseUrl && !supabaseUrl.includes('supabase.co')) {
-  console.warn('Warning: Supabase URL may be invalid - should contain "supabase.co"');
-}
-
+// Criar cliente com valores hardcoded temporariamente
 export const supabase = createClient(supabaseUrl, supabaseAnonKey);
+
+// Log do cliente criado
+console.log('Supabase client created');
+console.log('Client auth URL:', supabase.auth);
+
+// NOTA: Este é um hardcode temporário para resolver o problema de produção
+// As credenciais devem vir de variáveis de ambiente em produção final
