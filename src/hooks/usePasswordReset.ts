@@ -174,10 +174,7 @@ export const usePasswordReset = () => {
         }));
       } else {
         setSuccess(true);
-        // Redireciona para login após 2 segundos
-        setTimeout(() => {
-          navigate('/login', { replace: true });
-        }, 2000);
+        // NÃO redirecionar - usuário voltará manualmente ao app
       }
     } catch {
       setErrors(prev => ({
