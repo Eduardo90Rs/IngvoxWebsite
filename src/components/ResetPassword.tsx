@@ -3,6 +3,7 @@ import { Eye, EyeOff, Lock, CheckCircle, ArrowLeft, Loader2 } from 'lucide-react
 import { usePasswordReset } from '../hooks/usePasswordReset';
 import PasswordStrengthIndicator from './PasswordStrengthIndicator';
 import { useNavigate } from 'react-router-dom';
+import { supabase } from '../lib/supabase';
 
 const ResetPassword: React.FC = () => {
   const navigate = useNavigate();
@@ -21,8 +22,27 @@ const ResetPassword: React.FC = () => {
     getPasswordStrength
   } = usePasswordReset();
 
-  // Remover verificação de configuração por enquanto - usando hardcode temporário
-  // TODO: Reativar quando variáveis de ambiente funcionarem no Vercel
+  // Verificar se Supabase está configurado
+  const isSupabaseConfigured = !(supabase as any).__notConfigured;
+  
+  if (!isSupabaseConfigured && import.meta.env.PROD) {
+    return (
+      <div className="min-h-screen bg-brand-bg-primary flex items-center justify-center p-4">
+        <div className="bg-red-50 border border-red-200 rounded-xl p-8 max-w-md">
+          <h1 className="text-xl font-bold text-red-800 mb-4">Erro de Configuração</h1>
+          <p className="text-red-700 mb-4">
+            O sistema de recuperação de senha não está configurado corretamente.
+          </p>
+          <p className="text-sm text-red-600">
+            Por favor, entre em contato com o suporte técnico.
+          </p>
+          <div className="mt-4 p-3 bg-red-100 rounded text-xs font-mono text-red-800">
+            Erro: Variáveis de ambiente não configuradas
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   // Não renderizar nada até validar o token
   if (!tokenValid) {
