@@ -8,6 +8,7 @@ import Testimonials from './sections/Testimonials';
 import FAQ from './sections/FAQ';
 import Footer from './sections/Footer';
 import ResetPassword from './components/ResetPassword';
+import ConfirmEmail from './components/ConfirmEmail';
 
 // Componente da página principal
 const HomePage = () => (
@@ -32,6 +33,9 @@ function App() {
         
         {/* Rota isolada para reset de senha - apenas acessível via token do email */}
         <Route path="/reset-password" element={<ResetPassword />} />
+        
+        {/* Rota isolada para confirmação de email - redirecionamento do app */}
+        <Route path="/confirm-email" element={<ConfirmEmail />} />
       </Routes>
     </Router>
   );
