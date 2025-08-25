@@ -23,7 +23,7 @@ const ResetPassword: React.FC = () => {
   } = usePasswordReset();
 
   // Verificar se Supabase está configurado
-  const isSupabaseConfigured = !(supabase as any).__notConfigured;
+  const isSupabaseConfigured = !(supabase as typeof supabase & { __notConfigured?: boolean }).__notConfigured;
   
   if (!isSupabaseConfigured && import.meta.env.PROD) {
     return (
