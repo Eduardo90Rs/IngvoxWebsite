@@ -8,9 +8,22 @@ const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY || '';
 console.log('=== SUPABASE CONFIGURATION DEBUG ===');
 console.log('Environment:', import.meta.env.MODE);
 console.log('Is Production:', import.meta.env.PROD);
-console.log('VITE_SUPABASE_URL:', import.meta.env.VITE_SUPABASE_URL || 'NOT SET');
+console.log('Raw VITE_SUPABASE_URL:', import.meta.env.VITE_SUPABASE_URL);
+console.log('URL type:', typeof import.meta.env.VITE_SUPABASE_URL);
+console.log('URL length:', (import.meta.env.VITE_SUPABASE_URL || '').length);
+console.log('URL contains kaegprhq:', (import.meta.env.VITE_SUPABASE_URL || '').includes('kaegprhq'));
+console.log('URL substring test:', (import.meta.env.VITE_SUPABASE_URL || '').substring(0, 50));
 console.log('VITE_SUPABASE_ANON_KEY:', import.meta.env.VITE_SUPABASE_ANON_KEY ? 'SET' : 'NOT SET');
 console.log('All VITE vars:', Object.keys(import.meta.env).filter(k => k.startsWith('VITE_')));
+
+// Verificar especificamente por corrupção na URL
+const envUrl = import.meta.env.VITE_SUPABASE_URL;
+if (envUrl) {
+  console.log('=== URL CORRUPTION CHECK ===');
+  console.log('Expected: kaegprhqiipriovwgnecn');
+  console.log('Got in URL:', envUrl.match(/kaegprhq[a-z]*/)?.[0] || 'NOT FOUND');
+  console.log('URL corruption detected:', !envUrl.includes('kaegprhqiipriovwgnecn'));
+}
 
 // Determinar configuração a usar
 let finalUrl: string;

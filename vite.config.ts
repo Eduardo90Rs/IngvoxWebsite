@@ -7,9 +7,6 @@ export default defineConfig({
   optimizeDeps: {
     exclude: ['lucide-react'],
   },
-  // Garantir que variáveis de ambiente sejam injetadas corretamente
-  define: {
-    'import.meta.env.VITE_SUPABASE_URL': JSON.stringify(process.env.VITE_SUPABASE_URL),
-    'import.meta.env.VITE_SUPABASE_ANON_KEY': JSON.stringify(process.env.VITE_SUPABASE_ANON_KEY),
-  },
+  // Remover define customizado - deixar Vite usar processo padrão
+  // O define customizado pode estar causando corrupção da URL
 });
