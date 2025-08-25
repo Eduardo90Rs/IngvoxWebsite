@@ -22,18 +22,22 @@ const ResetPassword: React.FC = () => {
   } = usePasswordReset();
 
   // Verificar se Supabase está configurado
-  const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
-  const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
+  const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || 'https://placeholder.supabase.co';
+  const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.placeholder';
   
-  if (!supabaseUrl || !supabaseKey || supabaseUrl === 'YOUR_SUPABASE_URL' || supabaseKey === 'YOUR_SUPABASE_ANON_KEY') {
+  const isPlaceholder = supabaseUrl === 'https://placeholder.supabase.co' || 
+                       supabaseKey === 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.placeholder';
+  
+  if (isPlaceholder) {
     return (
       <div className="min-h-screen bg-brand-bg-primary flex items-center justify-center p-4">
         <div className="bg-red-50 border border-red-200 rounded-xl p-8 max-w-md">
           <h1 className="text-xl font-bold text-red-800 mb-4">Configuração Incompleta</h1>
-          <p className="text-red-700 mb-4">As variáveis de ambiente do Supabase não estão configuradas.</p>
-          <div className="text-sm text-red-600 font-mono">
-            <p>VITE_SUPABASE_URL: {supabaseUrl || 'MISSING'}</p>
-            <p>VITE_SUPABASE_ANON_KEY: {supabaseKey ? 'SET' : 'MISSING'}</p>
+          <p className="text-red-700 mb-4">As variáveis de ambiente do Supabase não estão configuradas no servidor.</p>
+          <div className="text-sm text-red-600 font-mono space-y-2">
+            <p>VITE_SUPABASE_URL: {import.meta.env.VITE_SUPABASE_URL || 'NOT SET'}</p>
+            <p>VITE_SUPABASE_ANON_KEY: {import.meta.env.VITE_SUPABASE_ANON_KEY ? 'CONFIGURED' : 'NOT SET'}</p>
+            <p className="text-xs mt-4">Por favor, configure as variáveis no Vercel Dashboard e faça redeploy.</p>
           </div>
         </div>
       </div>
