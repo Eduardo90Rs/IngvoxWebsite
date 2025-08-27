@@ -29,9 +29,12 @@ export default {
       fontSize: {
         // Typography system clean com 5 níveis hierárquicos
         'display': ['3.5rem', { lineHeight: '1.1', letterSpacing: '-0.02em' }],
+        'hero': ['4rem', { lineHeight: '1.05', letterSpacing: '-0.025em' }],
+        'mega': ['4.5rem', { lineHeight: '1.0', letterSpacing: '-0.03em', fontWeight: '200' }],
         'h1': ['2.5rem', { lineHeight: '1.2', letterSpacing: '-0.015em' }],
         'h2': ['2rem', { lineHeight: '1.3', letterSpacing: '-0.01em' }],
         'h3': ['1.5rem', { lineHeight: '1.4', letterSpacing: '-0.005em' }],
+        'mission-card': ['1.125rem', { lineHeight: '1.4', letterSpacing: '-0.005em' }],
         'body-lg': ['1.125rem', { lineHeight: '1.6' }],
         'body': ['1rem', { lineHeight: '1.6' }],
         'body-sm': ['0.875rem', { lineHeight: '1.5' }],
@@ -42,6 +45,9 @@ export default {
         '22': '5.5rem',   // 88px
         '26': '6.5rem',   // 104px
         '30': '7.5rem',   // 120px
+        '34': '8.5rem',   // 136px
+        '38': '9.5rem',   // 152px
+        '42': '10.5rem',  // 168px
       },
       boxShadow: {
         // Sombras minimalistas e sutis
@@ -57,8 +63,16 @@ export default {
         // Animações sutis e elegantes
         'fade-in': 'fadeIn 0.4s ease-out',
         'fade-in-up': 'fadeInUp 0.5s ease-out',
+        'fade-in-stagger': 'fadeInStagger 0.6s ease-out both',
         'scale-in': 'scaleIn 0.3s ease-out',
+        'lift': 'lift 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
         'breathing': 'breathing 3s ease-in-out infinite',
+        'rotate-subtle': 'rotateSubtle 0.3s ease-out',
+        'ambient-glow': 'ambientGlow 4s ease-in-out infinite',
+        'shimmer': 'shimmer 3s linear infinite',
+        'float': 'float 6s ease-in-out infinite',
+        'reveal': 'reveal 0.8s cubic-bezier(0.4, 0, 0.2, 1)',
+        'pulse-subtle': 'pulseSubtle 2s ease-in-out infinite',
       },
       keyframes: {
         fadeIn: {
@@ -76,6 +90,38 @@ export default {
         breathing: {
           '0%, 100%': { transform: 'scale(1)' },
           '50%': { transform: 'scale(1.02)' },
+        },
+        fadeInStagger: {
+          '0%': { opacity: '0', transform: 'translateY(20px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+        lift: {
+          '0%': { transform: 'translateY(0) scale(1)', boxShadow: '0 2px 8px rgba(34, 37, 57, 0.04)' },
+          '100%': { transform: 'translateY(-8px) scale(1.02)', boxShadow: '0 8px 32px rgba(34, 37, 57, 0.12)' },
+        },
+        rotateSubtle: {
+          '0%': { transform: 'rotate(0deg) scale(1)' },
+          '100%': { transform: 'rotate(10deg) scale(1.1)' },
+        },
+        ambientGlow: {
+          '0%, 100%': { boxShadow: '0 0 40px rgba(168, 153, 188, 0.2)' },
+          '50%': { boxShadow: '0 0 60px rgba(168, 153, 188, 0.4)' },
+        },
+        shimmer: {
+          '0%': { backgroundPosition: '-200% center' },
+          '100%': { backgroundPosition: '200% center' },
+        },
+        float: {
+          '0%, 100%': { transform: 'translateY(0px)' },
+          '50%': { transform: 'translateY(-10px)' },
+        },
+        reveal: {
+          '0%': { opacity: '0', transform: 'translateY(30px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+        pulseSubtle: {
+          '0%, 100%': { transform: 'scale(1)', opacity: '1' },
+          '50%': { transform: 'scale(1.05)', opacity: '0.9' },
         },
       },
       transitionTimingFunction: {

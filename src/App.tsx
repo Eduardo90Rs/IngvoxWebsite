@@ -4,7 +4,7 @@ import Hero from './sections/Hero';
 import HowItWorks from './sections/HowItWorks';
 import Languages from './sections/Languages';
 import WhyItWorks from './sections/WhyItWorks';
-import Testimonials from './sections/Testimonials';
+import Mission from './sections/Mission';
 import FAQ from './sections/FAQ';
 import Footer from './sections/Footer';
 import ResetPassword from './components/ResetPassword';
@@ -18,7 +18,7 @@ const HomePage = () => (
     <HowItWorks />
     <Languages />
     <WhyItWorks />
-    <Testimonials />
+    <Mission />
     <FAQ />
     <Footer />
   </div>
