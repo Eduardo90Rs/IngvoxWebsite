@@ -35,8 +35,8 @@ const HowItWorks: React.FC = () => {
   ];
 
   return (
-    <section id="how-it-works" className="section bg-brand-bg-secondary">
-      <div className="container-narrow">
+    <section id="how-it-works" className="section bg-gradient-lavender-subtle">
+      <div className="container">
         <div ref={titleRef} className="text-center mb-20">
           <h2 className="section-title">Como funciona</h2>
           <p className="section-subtitle">
@@ -44,30 +44,50 @@ const HowItWorks: React.FC = () => {
           </p>
         </div>
         
-        <div ref={stepsRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div ref={stepsRef} className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
           {steps.map((step, index) => {
             const IconComponent = step.icon;
             return (
               <div 
                 key={index} 
-                className="card card-hover group text-center relative transition-all duration-300 hover:scale-105"
+                className="card card-hover group text-center relative transition-all duration-300 hover:scale-105 overflow-hidden border border-brand-highlight/10 hover:border-brand-accent/20 p-8 md:p-12 min-h-[360px] flex flex-col justify-center"
+                style={{
+                  background: index % 2 === 0 
+                    ? 'linear-gradient(135deg, rgba(67, 145, 114, 0.40), rgba(248, 249, 249, 0.95))' 
+                    : 'linear-gradient(135deg, rgba(67, 145, 114, 0.35), rgba(248, 249, 249, 0.90))'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = index % 2 === 0
+                    ? 'linear-gradient(135deg, rgba(67, 145, 114, 0.60), rgba(248, 249, 249, 0.85))'
+                    : 'linear-gradient(135deg, rgba(67, 145, 114, 0.55), rgba(248, 249, 249, 0.80))';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = index % 2 === 0
+                    ? 'linear-gradient(135deg, rgba(67, 145, 114, 0.40), rgba(248, 249, 249, 0.95))'
+                    : 'linear-gradient(135deg, rgba(67, 145, 114, 0.35), rgba(248, 249, 249, 0.90))';
+                }}
               >
                 {/* Step Number */}
-                <div className="absolute -top-3 -left-3 w-6 h-6 bg-brand-accent rounded-full flex items-center justify-center">
-                  <span className="text-white text-body-sm font-bold">{index + 1}</span>
+                <div 
+                  className="absolute -top-2 -right-2 w-10 h-10 rounded-full flex items-center justify-center shadow-soft group-hover:scale-110 transition-all duration-300 animate-breathing z-20"
+                  style={{
+                    background: 'linear-gradient(135deg, rgba(67, 145, 114, 0.95), rgba(248, 249, 249, 0.90))'
+                  }}
+                >
+                  <span className="text-white text-body font-bold">{index + 1}</span>
                 </div>
                 
                 <div className="space-y-4">
-                  {/* Icon with subtle animation */}
-                  <div className={`w-16 h-16 mx-auto rounded-2xl bg-${step.color}/10 flex items-center justify-center group-hover:bg-${step.color}/20 transition-all duration-300 group-hover:scale-110`}>
-                    <IconComponent className={`h-8 w-8 text-${step.color} transition-all duration-300 group-hover:scale-110`} />
+                  {/* Icon with enhanced animation */}
+                  <div className={`w-16 h-16 mx-auto rounded-2xl bg-${step.color}/15 flex items-center justify-center group-hover:bg-${step.color}/25 transition-all duration-300 group-hover:scale-115 relative z-10 shadow-soft`}>
+                    <IconComponent className={`h-8 w-8 text-${step.color} transition-all duration-300 group-hover:scale-115 group-hover:drop-shadow-sm`} />
                   </div>
                   
                   <div>
-                    <h3 className="text-h3 font-bold mb-3 group-hover:text-brand-accent transition-colors duration-300">
+                    <h3 className="text-h3 font-bold mb-3 group-hover:text-brand-highlight transition-all duration-300 relative z-10">
                       {step.title}
                     </h3>
-                    <p className="body-small text-brand-text-secondary leading-relaxed">
+                    <p className="body-small text-brand-text-secondary leading-relaxed relative z-10">
                       {step.description}
                     </p>
                   </div>
@@ -76,7 +96,12 @@ const HowItWorks: React.FC = () => {
                 {/* Connection Arrow - only on larger screens */}
                 {index < steps.length - 1 && (
                   <div className="hidden lg:flex absolute -right-4 top-1/2 transform -translate-y-1/2 z-10">
-                    <div className="w-8 h-8 bg-brand-bg-primary rounded-full flex items-center justify-center shadow-subtle">
+                    <div 
+                      className="w-8 h-8 rounded-full flex items-center justify-center shadow-soft border border-brand-highlight/10 hover:scale-110 transition-all duration-300"
+                      style={{
+                        background: 'linear-gradient(135deg, rgba(67, 145, 114, 0.15), rgba(248, 249, 249, 0.95))'
+                      }}
+                    >
                       <ArrowRight className="w-4 h-4 text-brand-accent" />
                     </div>
                   </div>
@@ -87,13 +112,10 @@ const HowItWorks: React.FC = () => {
         </div>
         
         <div ref={ctaRef} className="mt-20 text-center">
-          <a href="#plans" className="btn btn-primary btn-large group">
+          <a href="#plans" className="btn btn-lavender btn-large group">
             Começar minha jornada
             <ArrowRight className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />
           </a>
-          <p className="body-small text-brand-text-muted mt-4">
-            Teste grátis por 7 dias • Sem compromisso
-          </p>
         </div>
       </div>
     </section>

@@ -67,6 +67,10 @@
     @apply text-brand-text-secondary hover:text-brand-text hover:bg-brand-bg-secondary/50 focus:ring-brand-highlight/20;
   }
 
+  .btn-lavender {
+    @apply bg-brand-highlight text-white hover:bg-brand-highlight-light shadow-soft focus:ring-brand-highlight/30;
+  }
+
   .btn-large {
     @apply px-8 py-4 text-body-lg;
   }

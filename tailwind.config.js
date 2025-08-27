@@ -96,6 +96,13 @@ export default {
         // Gradientes complementares
         'gradient-accent-subtle': 'linear-gradient(to right, rgb(67, 145, 114, 0.1), transparent)',
         'gradient-hero-bg': 'linear-gradient(135deg, rgb(168, 153, 188, 0.08), rgb(226, 232, 233, 0.95), rgb(248, 249, 249, 1))',
+        // Gradientes para cards "Como Funciona"
+        'gradient-step-1': 'linear-gradient(135deg, rgb(168, 153, 188, 0.12), rgb(67, 145, 114, 0.08))',
+        'gradient-step-2': 'linear-gradient(135deg, rgb(67, 145, 114, 0.12), rgb(168, 153, 188, 0.08))',
+        'gradient-step-hover-1': 'linear-gradient(135deg, rgb(168, 153, 188, 0.20), rgb(67, 145, 114, 0.15))',
+        'gradient-step-hover-2': 'linear-gradient(135deg, rgb(67, 145, 114, 0.20), rgb(168, 153, 188, 0.15))',
+        'gradient-step-number': 'linear-gradient(135deg, rgb(168, 153, 188, 0.9), rgb(67, 145, 114, 0.9))',
+        'gradient-step-arrow': 'linear-gradient(135deg, rgb(168, 153, 188, 0.08), rgb(67, 145, 114, 0.08))',
       },
     },
   },
