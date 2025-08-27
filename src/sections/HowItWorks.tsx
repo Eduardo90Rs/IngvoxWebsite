@@ -50,7 +50,7 @@ const HowItWorks: React.FC = () => {
             return (
               <div 
                 key={index} 
-                className="card card-hover group text-center relative transition-all duration-300 hover:scale-105 overflow-hidden border border-brand-highlight/10 hover:border-brand-accent/20 p-8 md:p-12 min-h-[360px] flex flex-col justify-center"
+                className="card card-hover group text-center relative transition-all duration-300 hover:scale-105 border border-brand-highlight/10 hover:border-brand-accent/20 p-8 md:p-12 min-h-[360px] flex flex-col justify-center"
                 style={{
                   background: index % 2 === 0 
                     ? 'linear-gradient(135deg, rgba(67, 145, 114, 0.40), rgba(248, 249, 249, 0.95))' 
@@ -69,7 +69,7 @@ const HowItWorks: React.FC = () => {
               >
                 {/* Step Number */}
                 <div 
-                  className="absolute -top-2 -right-2 w-10 h-10 rounded-full flex items-center justify-center shadow-soft group-hover:scale-110 transition-all duration-300 animate-breathing z-20"
+                  className="absolute top-3 right-3 w-10 h-10 rounded-full flex items-center justify-center shadow-soft group-hover:scale-110 transition-all duration-300 animate-breathing z-20"
                   style={{
                     background: 'linear-gradient(135deg, rgba(67, 145, 114, 0.95), rgba(248, 249, 249, 0.90))'
                   }}
@@ -95,7 +95,7 @@ const HowItWorks: React.FC = () => {
                 
                 {/* Connection Arrow - only on larger screens */}
                 {index < steps.length - 1 && (
-                  <div className="hidden lg:flex absolute -right-4 top-1/2 transform -translate-y-1/2 z-10">
+                  <div className="hidden lg:flex absolute right-2 top-1/2 transform -translate-y-1/2 z-10">
                     <div 
                       className="w-8 h-8 rounded-full flex items-center justify-center shadow-soft border border-brand-highlight/10 hover:scale-110 transition-all duration-300"
                       style={{
