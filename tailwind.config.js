@@ -87,6 +87,16 @@ export default {
         '2xl': '1rem',
         '3xl': '1.5rem',
       },
+      backgroundImage: {
+        // Gradientes lavender pré-definidos
+        'gradient-lavender-subtle': 'linear-gradient(to bottom right, rgb(168, 153, 188, 0.05), #E2E8E9)',
+        'gradient-lavender-medium': 'linear-gradient(to bottom right, rgb(168, 153, 188, 0.15), #F8F9F9)',
+        'gradient-lavender-strong': 'linear-gradient(to bottom right, rgb(168, 153, 188, 0.8), #E2E8E9)',
+        'gradient-lavender-footer': 'linear-gradient(135deg, rgb(168, 153, 188, 0.85), rgb(226, 232, 233, 0.95))',
+        // Gradientes complementares
+        'gradient-accent-subtle': 'linear-gradient(to right, rgb(67, 145, 114, 0.1), transparent)',
+        'gradient-hero-bg': 'linear-gradient(135deg, rgb(168, 153, 188, 0.08), rgb(226, 232, 233, 0.95), rgb(248, 249, 249, 1))',
+      },
     },
   },
   plugins: [],

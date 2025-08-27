@@ -62,9 +62,11 @@ const Navbar: React.FC = () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
           }}
         >
-          <div className="font-montserrat font-bold text-2xl text-brand-text group-hover:text-brand-accent transition-colors duration-300">
-            IngVox
-          </div>
+          <img 
+            src="/assets/logos/1.png" 
+            alt="IngVox Logo" 
+            className="h-8 md:h-10 transition-all duration-300 group-hover:brightness-110"
+          />
         </a>
         
         {/* Desktop Navigation */}

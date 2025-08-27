@@ -3,13 +3,13 @@ import { MessageSquare, Mic, Star, ArrowRight } from 'lucide-react';
 
 const Hero: React.FC = () => {
   return (
-    <section className="section bg-brand-bg-primary min-h-screen flex items-center">
+    <section className="section bg-gradient-hero-bg min-h-screen flex items-center">
       <div className="container">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           {/* Content Column */}
           <div className="lg:col-span-5 space-y-8">
             <div className="space-y-6">
-              <h1 className="display">
+              <h1 className="display text-brand-accent">
                 Desbrave o mundo.
                 <br />
                 <span className="text-brand-text-secondary">Uma conversa por vez.</span>
@@ -50,9 +50,9 @@ const Hero: React.FC = () => {
           <div className="lg:col-span-7 relative">
             <div className="max-w-lg mx-auto">
               {/* Chat Interface */}
-              <div className="card card-feature relative overflow-hidden">
+              <div className="bg-gradient-lavender-medium rounded-2xl shadow-soft p-8 transition-all duration-300 border border-brand-highlight/15 relative overflow-hidden">
                 {/* Header */}
-                <div className="flex items-center justify-between pb-4 mb-6 border-b border-brand-highlight/10">
+                <div className="flex items-center justify-between pb-4 mb-8 border-b border-brand-highlight/15">
                   <div className="flex items-center gap-3">
                     <div className="w-8 h-8 rounded-full bg-brand-accent/20 flex items-center justify-center">
                       <MessageSquare className="h-4 w-4 text-brand-accent" />
@@ -66,13 +66,13 @@ const Hero: React.FC = () => {
                 </div>
                 
                 {/* Messages */}
-                <div className="space-y-4 mb-6">
+                <div className="space-y-6 mb-8">
                   {/* AI Message */}
                   <div className="flex gap-3">
                     <div className="w-6 h-6 rounded-full bg-brand-highlight/20 flex items-center justify-center flex-shrink-0 mt-1">
                       <div className="w-2 h-2 bg-brand-highlight rounded-full"></div>
                     </div>
-                    <div className="bg-brand-bg-secondary/50 rounded-2xl rounded-tl-md p-4 max-w-xs">
+                    <div className="bg-brand-highlight/10 rounded-2xl rounded-tl-md p-4 max-w-xs">
                       <p className="text-brand-text-secondary text-body">How was your weekend? Did you do anything interesting?</p>
                     </div>
                   </div>
@@ -104,7 +104,7 @@ const Hero: React.FC = () => {
                 
                 {/* Typing Indicator */}
                 <div className="flex items-center justify-center">
-                  <div className="bg-brand-highlight/10 rounded-full px-4 py-2 flex items-center gap-2">
+                  <div className="bg-brand-highlight/15 rounded-full px-4 py-2 flex items-center gap-2">
                     <div className="flex gap-1">
                       <div className="w-1 h-1 bg-brand-highlight rounded-full animate-pulse"></div>
                       <div className="w-1 h-1 bg-brand-highlight rounded-full animate-pulse" style={{animationDelay: '0.2s'}}></div>
@@ -118,18 +118,6 @@ const Hero: React.FC = () => {
               {/* Subtle background elements */}
               <div className="absolute -top-4 -right-4 w-20 h-20 bg-brand-highlight/5 rounded-full blur-xl"></div>
               <div className="absolute -bottom-8 -left-8 w-32 h-32 bg-brand-accent/5 rounded-full blur-2xl"></div>
-            </div>
-          </div>
-        </div>
-        
-        {/* Trust indicators - minimal */}
-        <div className="mt-20 pt-12 border-t border-brand-highlight/10">
-          <div className="text-center">
-            <p className="body-small text-brand-text-muted mb-4">Confiado por milhares de estudantes</p>
-            <div className="flex items-center justify-center gap-8 opacity-60">
-              <div className="h-6 w-24 bg-brand-text-muted/20 rounded"></div>
-              <div className="h-6 w-20 bg-brand-text-muted/20 rounded"></div>
-              <div className="h-6 w-28 bg-brand-text-muted/20 rounded"></div>
             </div>
           </div>
         </div>
