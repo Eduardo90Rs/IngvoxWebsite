@@ -160,7 +160,7 @@ const Pricing: React.FC = () => {
                 <button 
                   className={`btn w-full ${
                     plan.highlight 
-                      ? 'btn-primary' 
+                      ? 'btn-lavender' 
                       : 'btn-secondary'
                   }`}
                 >

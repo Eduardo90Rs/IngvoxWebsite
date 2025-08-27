@@ -21,7 +21,7 @@ const Hero: React.FC = () => {
             </div>
             
             <div className="flex flex-col sm:flex-row items-start gap-4">
-              <a href="#plans" className="btn btn-primary btn-large group">
+              <a href="#plans" className="btn btn-lavender btn-large group">
                 Começar gratuitamente
                 <ArrowRight className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />
               </a>

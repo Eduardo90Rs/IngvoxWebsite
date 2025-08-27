@@ -40,7 +40,7 @@ const WhyItWorks: React.FC = () => {
         </div>
         
         <div className="mt-16 text-center">
-          <a href="#plans" className="btn btn-primary">
+          <a href="#plans" className="btn btn-lavender">
             Experimentar agora
           </a>
         </div>

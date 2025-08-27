@@ -101,7 +101,7 @@ const Navbar: React.FC = () => {
               e.preventDefault();
               handleNavClick('#plans');
             }}
-            className="btn btn-primary btn-small group"
+            className="btn btn-lavender btn-small group"
           >
             Teste Grátis
           </a>
