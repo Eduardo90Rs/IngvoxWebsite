@@ -6,143 +6,184 @@ const Pricing: React.FC = () => {
   
   const plans = [
     {
-      name: 'Mensal',
+      name: 'Básico',
+      description: 'Para começar sua jornada',
       price: isAnnual ? 29.90 : 39.90,
       period: '/mês',
-      billed: isAnnual ? 'cobrado anualmente' : 'cobrado mensalmente',
+      billed: isAnnual ? 'R$ 358,80/ano' : 'cobrado mensalmente',
       features: [
         'Conversação ilimitada',
         'Todos os idiomas disponíveis',
         'Correções personalizadas',
         'Acompanhamento de progresso',
-        'Tópicos de conversação variados',
+        'Tópicos variados de conversação',
       ],
       highlight: false,
-      discount: isAnnual ? 'Economize 25%' : null
+      savings: isAnnual ? '25%' : null
     },
     {
-      name: 'Trimestral',
+      name: 'Premium',
+      description: 'Acelere seu aprendizado',
       price: isAnnual ? 24.90 : 34.90,
       period: '/mês',
-      billed: isAnnual ? 'cobrado anualmente' : 'cobrado trimestralmente',
+      billed: isAnnual ? 'R$ 298,80/ano' : 'R$ 104,70 por 3 meses',
       features: [
-        'Conversação ilimitada',
-        'Todos os idiomas disponíveis',
-        'Correções personalizadas',
-        'Acompanhamento de progresso',
-        'Tópicos de conversação variados',
+        'Tudo do plano Básico',
         'Exercícios temáticos',
+        'Simulações de situações reais',
+        'Relatórios de progresso detalhados',
+        'Suporte prioritário',
       ],
       highlight: true,
-      discount: isAnnual ? 'Economize 30%' : 'Economize 12%'
+      savings: isAnnual ? '35%' : '12%'
     },
     {
-      name: 'Anual',
+      name: 'Pro',
+      description: 'Fluência sem limites',
       price: isAnnual ? 19.90 : null,
       period: '/mês',
-      billed: 'cobrado anualmente',
+      billed: 'R$ 238,80/ano',
       features: [
-        'Conversação ilimitada',
-        'Todos os idiomas disponíveis',
-        'Correções personalizadas',
-        'Acompanhamento de progresso',
-        'Tópicos de conversação variados',
-        'Exercícios temáticos',
-        'Relatórios detalhados de evolução',
+        'Tudo do plano Premium',
+        'Sessões de conversação 1:1',
+        'Análise avançada de pronúncia',
+        'Certificados de progresso',
+        'Acesso antecipado a novos recursos',
       ],
       highlight: false,
-      discount: 'Economize 50%'
+      savings: '50%',
+      available: isAnnual
     }
   ];
 
+  const visiblePlans = plans.filter(plan => plan.available !== false);
+
   return (
     <section id="plans" className="section bg-brand-bg-secondary">
-      <div className="container">
-        <h2 className="section-title accent-underline">Planos e Preços</h2>
+      <div className="container-narrow">
+        <div className="text-center mb-16">
+          <h2 className="section-title">Escolha seu plano</h2>
+          <p className="section-subtitle">
+            Comece gratuitamente e escolha o plano ideal para seu aprendizado
+          </p>
+        </div>
         
+        {/* Toggle Switch Clean */}
         <div className="flex justify-center mb-12">
-          <div className="bg-brand-highlight/20 p-1 rounded-full inline-flex">
+          <div className="bg-brand-bg-tertiary border border-brand-highlight/10 p-1 rounded-2xl inline-flex shadow-subtle">
             <button
-              className={`px-6 py-2 rounded-full text-sm font-medium transition-all font-poppins ${
-                !isAnnual ? 'bg-brand-bg-primary shadow-soft text-brand-text' : 'text-brand-text/70'
+              className={`px-6 py-2 rounded-xl text-body-sm font-medium transition-all font-poppins ${
+                !isAnnual 
+                  ? 'bg-brand-accent text-white shadow-soft' 
+                  : 'text-brand-text-secondary hover:text-brand-text'
               }`}
               onClick={() => setIsAnnual(false)}
             >
-              Pagamento Mensal
+              Mensal
             </button>
             <button
-              className={`px-6 py-2 rounded-full text-sm font-medium transition-all font-poppins ${
-                isAnnual ? 'bg-brand-bg-primary shadow-soft text-brand-text' : 'text-brand-text/70'
+              className={`px-6 py-2 rounded-xl text-body-sm font-medium transition-all font-poppins relative ${
+                isAnnual 
+                  ? 'bg-brand-accent text-white shadow-soft' 
+                  : 'text-brand-text-secondary hover:text-brand-text'
               }`}
               onClick={() => setIsAnnual(true)}
             >
-              Pagamento Anual
+              Anual
+              <span className="absolute -top-2 -right-2 bg-brand-highlight text-white text-xs px-1.5 py-0.5 rounded-full">
+                Economize
+              </span>
             </button>
           </div>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
-          {plans.map((plan, index) => (
+        {/* Plans Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          {visiblePlans.map((plan, index) => (
             <div 
               key={index}
-              className={`card relative overflow-hidden ${
+              className={`card relative ${
                 plan.highlight 
-                  ? 'border-2 border-brand-accent transform md:-translate-y-4 bg-brand-bg-primary'
-                  : 'bg-brand-bg-primary'
+                  ? 'card-feature border-brand-accent/20 ring-1 ring-brand-accent/10' 
+                  : 'card-hover'
               }`}
             >
+              {/* Popular Badge */}
               {plan.highlight && (
-                <div className="absolute top-0 left-0 right-0 bg-brand-accent text-brand-bg-secondary text-center py-2 text-sm font-medium font-poppins">
-                  Mais Popular
+                <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
+                  <div className="bg-brand-accent text-white px-4 py-1 rounded-full text-body-sm font-medium">
+                    Mais popular
+                  </div>
                 </div>
               )}
               
-              <div className={`p-6 ${plan.highlight ? 'pt-10' : ''}`}>
-                <h3 className="text-xl font-bold mb-2 font-montserrat text-brand-text">{plan.name}</h3>
-                
-                {plan.discount && (
-                  <span className="inline-block bg-brand-accent/20 text-brand-accent text-xs font-semibold px-3 py-1 rounded-full mb-3 font-poppins">
-                    {plan.discount}
-                  </span>
-                )}
-                
-                <div className="mb-6">
-                  <span className="text-4xl font-bold text-brand-text font-montserrat">R$ {plan.price?.toFixed(2).replace('.', ',')}</span>
-                  <span className="text-brand-text/70 font-poppins">{plan.period}</span>
-                  <div className="text-sm text-brand-text/60 font-poppins">{plan.billed}</div>
+              <div className="p-8">
+                {/* Plan Header */}
+                <div className="text-center mb-8">
+                  <h3 className="text-h3 font-bold mb-2">{plan.name}</h3>
+                  <p className="body-small text-brand-text-muted mb-4">{plan.description}</p>
+                  
+                  {plan.savings && (
+                    <div className="inline-flex items-center gap-2 mb-4">
+                      <span className="body-small text-brand-accent font-medium">
+                        Economize {plan.savings}
+                      </span>
+                      <div className="w-1 h-1 bg-brand-accent rounded-full"></div>
+                    </div>
+                  )}
+                  
+                  <div className="mb-4">
+                    <span className="text-4xl font-bold text-brand-text">
+                      R$ {plan.price?.toFixed(2).replace('.', ',')}
+                    </span>
+                    <span className="text-brand-text-secondary">{plan.period}</span>
+                  </div>
+                  
+                  <p className="body-small text-brand-text-muted">{plan.billed}</p>
                 </div>
                 
-                <ul className="space-y-3 mb-8">
-                  {plan.features.map((feature, i) => (
-                    <li key={i} className="flex items-start">
-                      <Check className="h-5 w-5 text-brand-accent mr-3 flex-shrink-0 mt-0.5" />
-                      <span className="text-brand-text/80 font-poppins">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
+                {/* Features List */}
+                <div className="mb-8">
+                  <ul className="space-y-3">
+                    {plan.features.map((feature, i) => (
+                      <li key={i} className="flex items-start gap-3">
+                        <div className="flex-shrink-0 w-5 h-5 rounded-full bg-brand-accent/10 flex items-center justify-center mt-0.5">
+                          <Check className="h-3 w-3 text-brand-accent" />
+                        </div>
+                        <span className="text-brand-text-secondary text-body">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
                 
+                {/* CTA Button */}
                 <button 
-                  className={`w-full py-3 rounded-full font-medium transition-all duration-300 font-poppins ${
+                  className={`btn w-full ${
                     plan.highlight 
-                      ? 'bg-brand-accent hover:bg-brand-accent/90 text-brand-bg-secondary shadow-soft'
-                      : 'bg-brand-highlight/20 hover:bg-brand-highlight/30 text-brand-text'
+                      ? 'btn-primary' 
+                      : 'btn-secondary'
                   }`}
                 >
-                  {plan.name === 'Mensal' || plan.name === 'Trimestral' 
+                  {index === 0 
                     ? 'Teste grátis por 7 dias' 
-                    : 'Assinar Agora'}
+                    : plan.highlight
+                    ? 'Começar Premium'
+                    : 'Começar Pro'}
                 </button>
                 
-                <p className="text-xs text-center text-brand-text/60 mt-4 font-poppins">
-                  Sem surpresas. Cancele quando quiser.
+                <p className="body-small text-brand-text-muted text-center mt-4">
+                  Sem compromisso • Cancele a qualquer momento
                 </p>
               </div>
             </div>
           ))}
         </div>
         
-        <div className="text-center mt-12 text-brand-text/80 font-poppins">
-          <p>Sem surpresas. Sem anúncios. Só fluência.</p>
+        {/* Trust Message */}
+        <div className="text-center mt-16 pt-12 border-t border-brand-highlight/10">
+          <p className="body-large text-brand-text-secondary">
+            30 dias de garantia • Sem anúncios • Dados seguros
+          </p>
         </div>
       </div>
     </section>

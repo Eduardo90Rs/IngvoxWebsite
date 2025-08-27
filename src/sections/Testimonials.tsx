@@ -1,72 +1,115 @@
 import React from 'react';
-import { Star } from 'lucide-react';
+import { Star, Quote } from 'lucide-react';
 
 const Testimonials: React.FC = () => {
   const testimonials = [
     {
       name: 'Marina Silva',
-      location: 'São Paulo, SP',
-      image: 'https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=600',
-      text: 'Depois de tentar vários aplicativos, o IngVox foi o único que realmente melhorou minha fluência em inglês. As conversas são tão naturais que esqueço que estou falando com uma IA!',
-      stars: 5
+      role: 'Estudante de Medicina',
+      location: 'São Paulo',
+      text: 'Depois de tentar vários aplicativos, o IngVox foi o único que realmente melhorou minha fluência. As conversas são naturais e o feedback é sempre construtivo.',
+      rating: 5,
+      language: 'Inglês',
+      timeUsing: '8 meses'
     },
     {
       name: 'Carlos Mendes',
-      location: 'Rio de Janeiro, RJ',
-      image: 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=600',
-      text: 'Estou me preparando para uma viagem à Espanha e o IngVox tem sido essencial. Em apenas 2 meses, já consigo manter conversas básicas em espanhol com confiança.',
-      stars: 5
+      role: 'Engenheiro de Software',
+      location: 'Rio de Janeiro',
+      text: 'Me preparando para trabalhar no exterior, o IngVox tem sido essencial. Em 3 meses já tenho confiança para reuniões em inglês.',
+      rating: 5,
+      language: 'Inglês',
+      timeUsing: '3 meses'
     },
     {
       name: 'Juliana Costa',
-      location: 'Belo Horizonte, MG',
-      image: 'https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=600',
-      text: 'O que mais gosto é como a IA corrige meus erros sutilmente, sem me fazer sentir mal. É como ter um professor particular paciente disponível 24/7.',
-      stars: 5
+      role: 'Designer Gráfica',
+      location: 'Belo Horizonte',
+      text: 'A IA é incrivelmente paciente. Corrige meus erros sem me fazer sentir constrangida. Como ter um professor particular 24/7.',
+      rating: 5,
+      language: 'Espanhol',
+      timeUsing: '6 meses'
     }
   ];
 
   return (
     <section className="section bg-brand-bg-primary">
-      <div className="container">
-        <h2 className="section-title accent-underline">O que nossos usuários dizem</h2>
+      <div className="container-narrow">
+        <div className="text-center mb-20">
+          <h2 className="section-title">Histórias de sucesso</h2>
+          <p className="section-subtitle">
+            Descubra como nossos usuários alcançaram fluência com o IngVox
+          </p>
+        </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {testimonials.map((testimonial, index) => (
             <div 
               key={index}
-              className="card card-hover border border-brand-highlight/10"
+              className="card card-hover group"
             >
-              <div className="flex items-center mb-6">
-                <div className="w-12 h-12 rounded-full overflow-hidden mr-4 ring-2 ring-brand-highlight/20">
-                  <img 
-                    src={testimonial.image} 
-                    alt={testimonial.name} 
-                    className="w-full h-full object-cover"
-                  />
+              <div className="space-y-6">
+                {/* Quote */}
+                <div className="relative">
+                  <Quote className="h-8 w-8 text-brand-accent/20 mb-4" />
+                  <p className="body-large text-brand-text leading-relaxed">
+                    "{testimonial.text}"
+                  </p>
                 </div>
-                <div>
-                  <h3 className="font-bold font-montserrat text-brand-text">{testimonial.name}</h3>
-                  <p className="text-sm text-brand-text/70 font-poppins">{testimonial.location}</p>
+                
+                {/* Rating */}
+                <div className="flex items-center gap-1">
+                  {[...Array(testimonial.rating)].map((_, i) => (
+                    <Star key={i} className="w-4 h-4 text-brand-accent fill-current" />
+                  ))}
+                </div>
+                
+                {/* Author Info */}
+                <div className="pt-4 border-t border-brand-highlight/10">
+                  <div className="flex items-start justify-between">
+                    <div>
+                      <h4 className="font-montserrat font-semibold text-brand-text">
+                        {testimonial.name}
+                      </h4>
+                      <p className="body-small text-brand-text-secondary">
+                        {testimonial.role}
+                      </p>
+                      <p className="body-small text-brand-text-muted">
+                        {testimonial.location}
+                      </p>
+                    </div>
+                    
+                    <div className="text-right">
+                      <div className="body-small text-brand-text-secondary font-medium">
+                        {testimonial.language}
+                      </div>
+                      <div className="body-small text-brand-text-muted">
+                        {testimonial.timeUsing}
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
-              
-              <div className="flex mb-4">
-                {[...Array(testimonial.stars)].map((_, i) => (
-                  <Star key={i} className="w-4 h-4 text-brand-accent fill-current" />
-                ))}
-              </div>
-              
-              <p className="text-brand-text/80 italic font-poppins leading-relaxed">"{testimonial.text}"</p>
             </div>
           ))}
         </div>
         
-        <div className="mt-16 text-center">
-          <div className="inline-flex items-center space-x-2 bg-brand-bg-secondary px-6 py-3 rounded-full">
-            <Star className="w-5 h-5 text-brand-accent fill-current" />
-            <span className="font-medium text-brand-text font-poppins">4.9/5 baseado em +10.000 avaliações</span>
+        {/* Social Proof Clean */}
+        <div className="mt-20 text-center space-y-6">
+          <div className="inline-flex items-center gap-3 bg-brand-bg-tertiary border border-brand-highlight/10 px-6 py-3 rounded-2xl shadow-subtle">
+            <div className="flex items-center gap-1">
+              {[...Array(5)].map((_, i) => (
+                <Star key={i} className="w-4 h-4 text-brand-accent fill-current" />
+              ))}
+            </div>
+            <div className="w-px h-4 bg-brand-highlight/20"></div>
+            <span className="body-small text-brand-text font-medium">4.9/5</span>
+            <span className="body-small text-brand-text-muted">+10.000 avaliações</span>
           </div>
+          
+          <p className="body-small text-brand-text-muted max-w-md mx-auto">
+            Junte-se a milhares de estudantes que já transformaram sua fluência com o IngVox
+          </p>
         </div>
       </div>
     </section>

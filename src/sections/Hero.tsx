@@ -1,91 +1,136 @@
 import React from 'react';
-import { MessageSquare, Mic, Star } from 'lucide-react';
+import { MessageSquare, Mic, Star, ArrowRight } from 'lucide-react';
 
 const Hero: React.FC = () => {
   return (
-    <section className="pt-32 pb-20 md:pt-40 md:pb-32 bg-brand-bg-primary">
+    <section className="section bg-brand-bg-primary min-h-screen flex items-center">
       <div className="container">
-        <div className="flex flex-col md:flex-row items-center">
-          <div className="md:w-1/2 mb-10 md:mb-0 md:pr-12">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-montserrat font-bold leading-tight mb-6 text-brand-text">
-              Desbrave o mundo. Uma conversa por vez.
-            </h1>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          {/* Content Column */}
+          <div className="lg:col-span-5 space-y-8">
+            <div className="space-y-6">
+              <h1 className="display">
+                Desbrave o mundo.
+                <br />
+                <span className="text-brand-text-secondary">Uma conversa por vez.</span>
+              </h1>
+              
+              <p className="body-large text-brand-text-secondary max-w-lg">
+                Aprenda idiomas com a IA que conversa com você naturalmente.
+              </p>
+            </div>
             
-            <p className="text-xl md:text-2xl font-poppins text-brand-text mb-8 leading-relaxed">
-              Aprenda idiomas com a IA que conversa com você.
-            </p>
-            
-            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
-              <a href="#plans" className="btn btn-primary text-lg px-8 py-4">
-                Ativar acesso gratuito por 7 dias
+            <div className="flex flex-col sm:flex-row items-start gap-4">
+              <a href="#plans" className="btn btn-primary btn-large group">
+                Começar gratuitamente
+                <ArrowRight className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />
               </a>
               
-              <div className="flex items-center">
-                <div className="flex -space-x-2">
+              <div className="flex items-center gap-3">
+                <div className="flex -space-x-1">
                   {[1, 2, 3].map(i => (
-                    <div key={i} className="w-10 h-10 rounded-full bg-brand-highlight/30 border-2 border-brand-bg-primary flex items-center justify-center overflow-hidden">
-                      <img 
-                        src={`https://images.pexels.com/photos/3763188/pexels-photo-3763188.jpeg?auto=compress&cs=tinysrgb&w=600&h=600&dpr=1`} 
-                        alt="User" 
-                        className="w-full h-full object-cover"
-                      />
+                    <div key={i} className="w-8 h-8 rounded-full bg-brand-accent/20 border-2 border-brand-bg-primary overflow-hidden">
+                      <div className="w-full h-full bg-gradient-to-br from-brand-highlight to-brand-accent opacity-60"></div>
                     </div>
                   ))}
                 </div>
-                <div className="ml-3">
-                  <div className="flex items-center">
+                <div className="space-y-1">
+                  <div className="flex items-center gap-1">
                     {[1, 2, 3, 4, 5].map(i => (
-                      <Star key={i} size={16} className="text-brand-accent fill-current" />
+                      <Star key={i} size={12} className="text-brand-accent fill-current" />
                     ))}
                   </div>
-                  <p className="text-sm font-poppins text-brand-text">+10.000 usuários</p>
+                  <p className="body-small text-brand-text-muted">+10.000 usuários</p>
                 </div>
               </div>
             </div>
           </div>
           
-          <div className="md:w-1/2 relative">
-            <div className="bg-brand-bg-secondary rounded-2xl shadow-soft p-6 max-w-md mx-auto transform transition-all hover:-translate-y-1 hover:shadow-xl duration-300">
-              <div className="flex items-center space-x-3 mb-4">
-                <div className="w-10 h-10 rounded-full bg-brand-accent/20 flex items-center justify-center">
-                  <MessageSquare className="h-5 w-5 text-brand-accent" />
+          {/* Chat Demo Column */}
+          <div className="lg:col-span-7 relative">
+            <div className="max-w-lg mx-auto">
+              {/* Chat Interface */}
+              <div className="card card-feature relative overflow-hidden">
+                {/* Header */}
+                <div className="flex items-center justify-between pb-4 mb-6 border-b border-brand-highlight/10">
+                  <div className="flex items-center gap-3">
+                    <div className="w-8 h-8 rounded-full bg-brand-accent/20 flex items-center justify-center">
+                      <MessageSquare className="h-4 w-4 text-brand-accent" />
+                    </div>
+                    <div>
+                      <h3 className="font-montserrat font-semibold text-brand-text text-body">Inglês • Conversação</h3>
+                      <p className="body-small text-brand-text-muted">Nível intermediário</p>
+                    </div>
+                  </div>
+                  <div className="accent-dot animate-breathing"></div>
                 </div>
-                <div>
-                  <h3 className="font-montserrat font-semibold text-brand-text">Conversa em Inglês</h3>
-                  <p className="text-sm font-poppins text-brand-text/70">Nível: Intermediário</p>
+                
+                {/* Messages */}
+                <div className="space-y-4 mb-6">
+                  {/* AI Message */}
+                  <div className="flex gap-3">
+                    <div className="w-6 h-6 rounded-full bg-brand-highlight/20 flex items-center justify-center flex-shrink-0 mt-1">
+                      <div className="w-2 h-2 bg-brand-highlight rounded-full"></div>
+                    </div>
+                    <div className="bg-brand-bg-secondary/50 rounded-2xl rounded-tl-md p-4 max-w-xs">
+                      <p className="text-brand-text-secondary text-body">How was your weekend? Did you do anything interesting?</p>
+                    </div>
+                  </div>
+                  
+                  {/* User Message */}
+                  <div className="flex gap-3 justify-end">
+                    <div className="bg-brand-accent/10 rounded-2xl rounded-tr-md p-4 max-w-xs">
+                      <p className="text-brand-text text-body">I visit my parents in the country. We eat lunch together.</p>
+                    </div>
+                    <div className="w-6 h-6 rounded-full bg-brand-accent/20 flex items-center justify-center flex-shrink-0 mt-1">
+                      <Mic className="h-3 w-3 text-brand-accent" />
+                    </div>
+                  </div>
+                  
+                  {/* AI Correction */}
+                  <div className="flex gap-3">
+                    <div className="w-6 h-6 rounded-full bg-brand-highlight/20 flex items-center justify-center flex-shrink-0 mt-1">
+                      <div className="w-2 h-2 bg-brand-highlight rounded-full"></div>
+                    </div>
+                    <div className="bg-brand-accent/5 border-l-2 border-brand-accent rounded-2xl rounded-tl-md p-4 max-w-sm">
+                      <p className="body-small text-brand-text-secondary mb-2">Ótimo! Pequenas correções:</p>
+                      <p className="text-brand-text text-body">
+                        "I <span className="text-brand-accent font-medium">visited</span> my parents in the <span className="text-brand-accent font-medium">countryside</span>. We <span className="text-brand-accent font-medium">ate</span> lunch together."
+                      </p>
+                      <p className="body-small text-brand-text-muted mt-2">💡 Lembre-se do tempo passado!</p>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Typing Indicator */}
+                <div className="flex items-center justify-center">
+                  <div className="bg-brand-highlight/10 rounded-full px-4 py-2 flex items-center gap-2">
+                    <div className="flex gap-1">
+                      <div className="w-1 h-1 bg-brand-highlight rounded-full animate-pulse"></div>
+                      <div className="w-1 h-1 bg-brand-highlight rounded-full animate-pulse" style={{animationDelay: '0.2s'}}></div>
+                      <div className="w-1 h-1 bg-brand-highlight rounded-full animate-pulse" style={{animationDelay: '0.4s'}}></div>
+                    </div>
+                    <span className="body-small text-brand-highlight">IA processando...</span>
+                  </div>
                 </div>
               </div>
               
-              <div className="border-l-4 border-brand-highlight/40 pl-4 py-2 mb-4">
-                <p className="font-poppins text-brand-text/80 italic">How was your weekend? Did you do anything interesting?</p>
-              </div>
-              
-              <div className="flex items-center space-x-3 mb-6">
-                <div className="w-10 h-10 rounded-full bg-brand-highlight/20 flex items-center justify-center">
-                  <Mic className="h-5 w-5 text-brand-highlight" />
-                </div>
-                <div className="flex-1 bg-brand-highlight/10 rounded-xl p-3">
-                  <p className="font-poppins text-brand-text/90">I visit my parents in the country. We eat lunch together.</p>
-                </div>
-              </div>
-              
-              <div className="border-l-4 border-brand-accent pl-4 py-2 mb-4 bg-brand-accent/5 rounded-r-lg">
-                <p className="font-poppins text-brand-text/80">Ótimo! Algumas correções:</p>
-                <p className="font-poppins text-brand-accent font-medium">
-                  "I <span className="underline">visited</span> my parents in the <span className="underline">countryside</span>. We <span className="underline">ate</span> lunch together."
-                </p>
-                <p className="font-poppins text-sm text-brand-text/70 mt-1">Lembre-se de usar o tempo passado!</p>
-              </div>
-              
-              <div className="flex justify-center mt-4">
-                <div className="bg-brand-highlight/10 text-brand-highlight rounded-full px-4 py-2 text-sm animate-pulse font-poppins">
-                  IA processando sua resposta...
-                </div>
-              </div>
+              {/* Subtle background elements */}
+              <div className="absolute -top-4 -right-4 w-20 h-20 bg-brand-highlight/5 rounded-full blur-xl"></div>
+              <div className="absolute -bottom-8 -left-8 w-32 h-32 bg-brand-accent/5 rounded-full blur-2xl"></div>
             </div>
-            
-            <div className="absolute -bottom-6 -right-6 w-24 h-24 bg-brand-highlight/20 rounded-full opacity-70 blur-xl z-0"></div>
-            <div className="absolute -top-10 -left-10 w-32 h-32 bg-brand-accent/20 rounded-full opacity-70 blur-xl z-0"></div>
+          </div>
+        </div>
+        
+        {/* Trust indicators - minimal */}
+        <div className="mt-20 pt-12 border-t border-brand-highlight/10">
+          <div className="text-center">
+            <p className="body-small text-brand-text-muted mb-4">Confiado por milhares de estudantes</p>
+            <div className="flex items-center justify-center gap-8 opacity-60">
+              <div className="h-6 w-24 bg-brand-text-muted/20 rounded"></div>
+              <div className="h-6 w-20 bg-brand-text-muted/20 rounded"></div>
+              <div className="h-6 w-28 bg-brand-text-muted/20 rounded"></div>
+            </div>
           </div>
         </div>
       </div>

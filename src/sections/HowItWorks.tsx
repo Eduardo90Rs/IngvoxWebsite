@@ -1,62 +1,99 @@
 import React from 'react';
-import { Globe, MessageCircle, Lightbulb, GraduationCap } from 'lucide-react';
+import { Globe, MessageCircle, Lightbulb, GraduationCap, ArrowRight } from 'lucide-react';
+import { useScrollAnimation, useStaggerAnimation } from '../hooks/useScrollAnimation';
 
 const HowItWorks: React.FC = () => {
+  const titleRef = useScrollAnimation();
+  const stepsRef = useStaggerAnimation(150);
+  const ctaRef = useScrollAnimation({ rootMargin: '0px 0px -20px 0px' });
+
   const steps = [
     {
-      icon: <Globe className="h-10 w-10 text-brand-accent" />,
+      icon: Globe,
       title: 'Escolha o idioma',
-      description: 'Selecione entre diversos idiomas disponíveis para começar sua jornada.'
+      description: 'Selecione entre diversos idiomas disponíveis para começar sua jornada.',
+      color: 'brand-accent'
     },
     {
-      icon: <MessageCircle className="h-10 w-10 text-brand-highlight" />,
+      icon: MessageCircle,
       title: 'Comece a conversar',
-      description: 'Interaja usando texto ou voz de forma natural, como em uma conversa real.'
+      description: 'Interaja usando texto ou voz de forma natural, como em uma conversa real.',
+      color: 'brand-highlight'
     },
     {
-      icon: <Lightbulb className="h-10 w-10 text-brand-accent" />,
+      icon: Lightbulb,
       title: 'A IA entende e corrige',
-      description: 'Nossa IA compreende seu nível, corrige erros e estimula seu progresso.'
+      description: 'Nossa IA compreende seu nível, corrige erros e estimula seu progresso.',
+      color: 'brand-accent'
     },
     {
-      icon: <GraduationCap className="h-10 w-10 text-brand-highlight" />,
+      icon: GraduationCap,
       title: 'Você aprende naturalmente',
-      description: 'Adquira fluência através da prática constante e feedback personalizado.'
+      description: 'Adquira fluência através da prática constante e feedback personalizado.',
+      color: 'brand-highlight'
     }
   ];
 
   return (
     <section id="how-it-works" className="section bg-brand-bg-secondary">
-      <div className="container">
-        <h2 className="section-title accent-underline">Como Funciona o IngVox</h2>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
-          {steps.map((step, index) => (
-            <div 
-              key={index} 
-              className="card card-hover flex flex-col items-center text-center relative"
-              data-aos="fade-up"
-              data-aos-delay={index * 100}
-            >
-              <div className="mb-6 p-4 rounded-full bg-brand-accent/10">{step.icon}</div>
-              <h3 className="text-xl font-bold mb-4 font-montserrat text-brand-text">{step.title}</h3>
-              <p className="text-brand-text/80 font-poppins leading-relaxed">{step.description}</p>
-              
-              {index < steps.length - 1 && (
-                <div className="hidden lg:block absolute right-0 top-1/2 transform translate-x-1/2 -translate-y-1/2">
-                  <svg className="w-8 h-8 text-brand-highlight/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </div>
-              )}
-            </div>
-          ))}
+      <div className="container-narrow">
+        <div ref={titleRef} className="text-center mb-20">
+          <h2 className="section-title">Como funciona</h2>
+          <p className="section-subtitle">
+            Quatro passos simples para transformar sua fluência
+          </p>
         </div>
         
-        <div className="mt-16 text-center">
-          <a href="#plans" className="btn btn-primary">
-            Começar Agora
+        <div ref={stepsRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {steps.map((step, index) => {
+            const IconComponent = step.icon;
+            return (
+              <div 
+                key={index} 
+                className="card card-hover group text-center relative transition-all duration-300 hover:scale-105"
+              >
+                {/* Step Number */}
+                <div className="absolute -top-3 -left-3 w-6 h-6 bg-brand-accent rounded-full flex items-center justify-center">
+                  <span className="text-white text-body-sm font-bold">{index + 1}</span>
+                </div>
+                
+                <div className="space-y-4">
+                  {/* Icon with subtle animation */}
+                  <div className={`w-16 h-16 mx-auto rounded-2xl bg-${step.color}/10 flex items-center justify-center group-hover:bg-${step.color}/20 transition-all duration-300 group-hover:scale-110`}>
+                    <IconComponent className={`h-8 w-8 text-${step.color} transition-all duration-300 group-hover:scale-110`} />
+                  </div>
+                  
+                  <div>
+                    <h3 className="text-h3 font-bold mb-3 group-hover:text-brand-accent transition-colors duration-300">
+                      {step.title}
+                    </h3>
+                    <p className="body-small text-brand-text-secondary leading-relaxed">
+                      {step.description}
+                    </p>
+                  </div>
+                </div>
+                
+                {/* Connection Arrow - only on larger screens */}
+                {index < steps.length - 1 && (
+                  <div className="hidden lg:flex absolute -right-4 top-1/2 transform -translate-y-1/2 z-10">
+                    <div className="w-8 h-8 bg-brand-bg-primary rounded-full flex items-center justify-center shadow-subtle">
+                      <ArrowRight className="w-4 h-4 text-brand-accent" />
+                    </div>
+                  </div>
+                )}
+              </div>
+            );
+          })}
+        </div>
+        
+        <div ref={ctaRef} className="mt-20 text-center">
+          <a href="#plans" className="btn btn-primary btn-large group">
+            Começar minha jornada
+            <ArrowRight className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />
           </a>
+          <p className="body-small text-brand-text-muted mt-4">
+            Teste grátis por 7 dias • Sem compromisso
+          </p>
         </div>
       </div>
     </section>

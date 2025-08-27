@@ -5,55 +5,149 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    font-feature-settings: "kern" 1, "liga" 1;
   }
   
   body {
-    @apply text-brand-text font-poppins bg-brand-bg-primary;
+    @apply text-brand-text font-poppins bg-brand-bg-primary text-body;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
   
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-montserrat font-bold text-brand-text;
+  /* Typography System Clean - 5 níveis hierárquicos */
+  h1 {
+    @apply font-montserrat font-bold text-brand-text text-h1;
+  }
+  
+  h2 {
+    @apply font-montserrat font-bold text-brand-text text-h2;
+  }
+  
+  h3 {
+    @apply font-montserrat font-semibold text-brand-text text-h3;
+  }
+  
+  .display {
+    @apply font-montserrat font-bold text-brand-text text-display;
+  }
+  
+  .body-large {
+    @apply font-poppins text-brand-text-secondary text-body-lg;
+  }
+  
+  .body-small {
+    @apply font-poppins text-brand-text-muted text-body-sm;
   }
 }
 
 @layer components {
+  /* Layout Clean */
   .container {
-    @apply px-6 mx-auto max-w-7xl;
+    @apply px-6 mx-auto max-w-6xl;
   }
   
+  .container-narrow {
+    @apply px-6 mx-auto max-w-4xl;
+  }
+  
+  /* Buttons Clean - 3 níveis hierárquicos */
   .btn {
-    @apply px-6 py-3 rounded-full font-medium transition-all duration-300 text-center inline-block font-poppins;
+    @apply px-6 py-3 rounded-2xl font-medium transition-all duration-300 text-center inline-flex items-center justify-center font-poppins text-body border-0 focus:outline-none focus:ring-2 focus:ring-offset-2;
   }
   
   .btn-primary {
-    @apply bg-brand-text text-brand-bg-secondary hover:bg-opacity-90 shadow-soft;
+    @apply bg-brand-accent text-white hover:bg-brand-accent-light shadow-soft focus:ring-brand-accent/30;
   }
   
   .btn-secondary {
-    @apply bg-brand-highlight text-brand-bg-secondary hover:bg-opacity-90 shadow-soft;
-  }
-
-  .btn-outline {
-    @apply border-2 border-brand-accent text-brand-accent hover:bg-brand-accent hover:text-white;
+    @apply bg-brand-bg-tertiary text-brand-text border border-brand-highlight/20 hover:bg-brand-highlight/5 shadow-subtle focus:ring-brand-highlight/30;
   }
   
+  .btn-ghost {
+    @apply text-brand-text-secondary hover:text-brand-text hover:bg-brand-bg-secondary/50 focus:ring-brand-highlight/20;
+  }
+
+  .btn-large {
+    @apply px-8 py-4 text-body-lg;
+  }
+  
+  .btn-small {
+    @apply px-4 py-2 text-body-sm;
+  }
+  
+  /* Sections Clean */
   .section {
+    @apply py-20 md:py-30;
+  }
+  
+  .section-narrow {
     @apply py-16 md:py-24;
   }
   
   .section-title {
-    @apply text-3xl md:text-4xl font-bold text-center mb-12 font-montserrat;
+    @apply text-h2 font-bold text-center mb-16 font-montserrat;
   }
   
+  .section-subtitle {
+    @apply text-body-lg text-brand-text-secondary text-center max-w-2xl mx-auto mb-12;
+  }
+  
+  /* Cards Ultra-Clean */
   .card {
-    @apply bg-brand-bg-secondary rounded-xl shadow-soft p-6 transition-all duration-300;
+    @apply bg-brand-bg-tertiary rounded-2xl shadow-soft p-6 transition-all duration-300 border border-brand-highlight/5;
   }
   
   .card-hover {
-    @apply hover:shadow-xl hover:-translate-y-1;
+    @apply hover:shadow-medium hover:-translate-y-0.5 hover:border-brand-highlight/10;
+  }
+  
+  .card-minimal {
+    @apply bg-transparent border-0 shadow-none p-0;
+  }
+  
+  .card-feature {
+    @apply bg-gradient-to-br from-brand-bg-tertiary to-brand-bg-secondary border-brand-highlight/10;
   }
 
+  /* Subtle accents */
   .accent-underline {
-    @apply relative after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-12 after:bg-brand-accent;
+    @apply relative;
+  }
+  
+  .accent-underline::after {
+    content: '';
+    @apply absolute left-1/2 transform -translate-x-1/2 -bottom-2 h-0.5 w-12 bg-brand-accent rounded-full;
+  }
+  
+  .accent-dot {
+    @apply w-2 h-2 bg-brand-accent rounded-full;
+  }
+  
+  /* Focus states clean */
+  .focus-visible {
+    @apply outline-none ring-2 ring-brand-highlight/30 ring-offset-2 ring-offset-brand-bg-primary;
+  }
+  
+  /* Animations ready classes */
+  .animate-on-scroll {
+    @apply opacity-0 translate-y-8;
+  }
+  
+  .animate-on-scroll.in-view {
+    @apply opacity-100 translate-y-0 transition-all duration-700 ease-gentle;
+  }
+  
+  /* Spacing utilities clean */
+  .space-y-clean > * + * {
+    @apply mt-6;
+  }
+  
+  .space-y-clean-lg > * + * {
+    @apply mt-8;
+  }
+  
+  /* Glass effect sutil */
+  .glass-effect {
+    @apply bg-white/60 backdrop-blur-xs border border-white/20;
   }
 }
