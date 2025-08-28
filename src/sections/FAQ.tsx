@@ -32,7 +32,7 @@ const FAQ: React.FC = () => {
   };
 
   return (
-    <section id="faq" className="section bg-brand-bg-secondary">
+    <section id="faq" className="section bg-brand-bg-secondary mission-to-faq ambient-shadow-medium">
       <div className="container max-w-4xl">
         <h2 className="section-title accent-underline">Perguntas Frequentes</h2>
         

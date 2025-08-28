@@ -17,7 +17,7 @@ const WhyItWorks: React.FC = () => {
   ];
 
   return (
-    <section className="section bg-brand-bg-secondary">
+    <section className="section bg-brand-bg-secondary languages-to-whyitworks ambient-shadow-medium">
       <div className="container">
         <h2 className="section-title accent-underline">Por que Funciona?</h2>
         

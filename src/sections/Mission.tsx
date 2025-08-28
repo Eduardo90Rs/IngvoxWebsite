@@ -37,7 +37,7 @@ const Mission: React.FC = () => {
 
 
   return (
-    <section className="section bg-brand-highlight pattern-subtle relative overflow-hidden">
+    <section className="section bg-brand-highlight pattern-subtle whyitworks-to-mission ambient-shadow-strong relative overflow-hidden">
       <div className="container-narrow py-20">
         {/* Logo Card */}
         <div className="flex justify-center mb-12">

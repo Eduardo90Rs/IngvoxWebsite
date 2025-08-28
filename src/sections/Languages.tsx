@@ -112,7 +112,7 @@ const Languages: React.FC = () => {
   ];
 
   return (
-    <section id="languages" className="section bg-gradient-lavender-subtle">
+    <section id="languages" className="section bg-gradient-lavender-subtle ambient-shadow-light">
       <div className="container">
         <div className="text-center mb-16">
           <h2 className="section-title">Idiomas Disponíveis</h2>

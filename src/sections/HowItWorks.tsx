@@ -35,7 +35,7 @@ const HowItWorks: React.FC = () => {
   ];
 
   return (
-    <section id="how-it-works" className="section bg-gradient-lavender-subtle">
+    <section id="how-it-works" className="section bg-gradient-lavender-subtle hero-to-howitworks ambient-shadow-light">
       <div className="container">
         <div ref={titleRef} className="text-center mb-20">
           <h2 className="section-title">Como funciona</h2>

@@ -3,7 +3,7 @@ import { Instagram, Mail } from 'lucide-react';
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-brand-highlight text-white py-16">
+    <footer className="bg-brand-highlight text-white py-16 ambient-shadow-light">
       <div className="container">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           <div>

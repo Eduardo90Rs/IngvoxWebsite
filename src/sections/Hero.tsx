@@ -3,7 +3,7 @@ import { MessageSquare, Mic, Star, ArrowRight } from 'lucide-react';
 
 const Hero: React.FC = () => {
   return (
-    <section className="section bg-gradient-hero-bg min-h-screen flex items-center">
+    <section className="section bg-gradient-hero-bg min-h-screen flex items-center section-fade-bottom">
       <div className="container">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           {/* Content Column */}
