@@ -35,11 +35,11 @@ const HowItWorks: React.FC = () => {
   ];
 
   return (
-    <section id="how-it-works" className="section bg-gradient-lavender-subtle hero-to-howitworks ambient-shadow-light">
+    <section id="how-it-works" className="section bg-brand-accent hero-to-howitworks ambient-shadow-light">
       <div className="container">
         <div ref={titleRef} className="text-center mb-20">
-          <h2 className="section-title">Como funciona</h2>
-          <p className="section-subtitle">
+          <h2 className="section-title text-white">Como funciona</h2>
+          <p className="section-subtitle text-white/90">
             Quatro passos simples para transformar sua fluência
           </p>
         </div>
@@ -50,30 +50,10 @@ const HowItWorks: React.FC = () => {
             return (
               <div 
                 key={index} 
-                className="card card-hover group text-center relative transition-all duration-300 hover:scale-105 border border-brand-highlight/10 hover:border-brand-accent/20 p-8 md:p-12 min-h-[360px] flex flex-col justify-center"
-                style={{
-                  background: index % 2 === 0 
-                    ? 'linear-gradient(135deg, rgba(67, 145, 114, 0.40), rgba(248, 249, 249, 0.95))' 
-                    : 'linear-gradient(135deg, rgba(67, 145, 114, 0.35), rgba(248, 249, 249, 0.90))'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.background = index % 2 === 0
-                    ? 'linear-gradient(135deg, rgba(67, 145, 114, 0.60), rgba(248, 249, 249, 0.85))'
-                    : 'linear-gradient(135deg, rgba(67, 145, 114, 0.55), rgba(248, 249, 249, 0.80))';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.background = index % 2 === 0
-                    ? 'linear-gradient(135deg, rgba(67, 145, 114, 0.40), rgba(248, 249, 249, 0.95))'
-                    : 'linear-gradient(135deg, rgba(67, 145, 114, 0.35), rgba(248, 249, 249, 0.90))';
-                }}
+                className="card card-hover group text-center relative transition-all duration-300 hover:scale-105 bg-brand-bg-tertiary border-2 border-brand-highlight hover:border-brand-highlight/80 p-8 md:p-12 min-h-[360px] flex flex-col justify-center"
               >
                 {/* Step Number */}
-                <div 
-                  className="absolute top-3 right-3 w-10 h-10 rounded-full flex items-center justify-center shadow-soft group-hover:scale-110 transition-all duration-300 animate-breathing z-20"
-                  style={{
-                    background: 'linear-gradient(135deg, rgba(67, 145, 114, 0.95), rgba(248, 249, 249, 0.90))'
-                  }}
-                >
+                <div className="absolute top-3 right-3 w-10 h-10 rounded-full bg-brand-highlight flex items-center justify-center shadow-soft group-hover:scale-110 transition-all duration-300 animate-breathing z-20">
                   <span className="text-white text-body font-bold">{index + 1}</span>
                 </div>
                 
