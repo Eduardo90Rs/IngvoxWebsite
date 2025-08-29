@@ -35,7 +35,13 @@ const HowItWorks: React.FC = () => {
   ];
 
   return (
-    <section id="how-it-works" className="section bg-brand-accent hero-to-howitworks ambient-shadow-light">
+    <section 
+      id="how-it-works" 
+      className="section hero-to-howitworks ambient-shadow-light"
+      style={{
+        background: 'linear-gradient(135deg, #439172, #E2E8E9)'
+      }}
+    >
       <div className="container">
         <div ref={titleRef} className="text-center mb-20">
           <h2 className="section-title text-white">Como funciona</h2>

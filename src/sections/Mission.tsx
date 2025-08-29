@@ -5,8 +5,8 @@ const Mission: React.FC = () => {
   const values = [
     {
       icon: Users,
-      title: 'Personalização radical',
-      description: 'Cada aprendizado é único. Nossa IA se adapta completamente ao seu perfil cognitivo e emocional.',
+      title: 'Independência',
+      description: 'Dominar um novo idioma é conquistar autonomia. Empoderamos você com confiança e autoestima para se expressar sem limites.',
       color: 'brand-accent'
     },
     {
@@ -17,8 +17,8 @@ const Mission: React.FC = () => {
     },
     {
       icon: Sparkles,
-      title: 'Elegância minimalista',
-      description: 'Simplicidade sofisticada. Design limpo que foca no que realmente importa: seu aprendizado.',
+      title: 'Curiosidade',
+      description: 'A curiosidade de aprender uma nova língua é o que nos motiva a ver o mundo de maneiras diferentes e expandir horizontes.',
       color: 'brand-accent'
     },
     {
@@ -40,8 +40,8 @@ const Mission: React.FC = () => {
     <section className="section bg-brand-highlight pattern-subtle whyitworks-to-mission ambient-shadow-strong relative overflow-hidden">
       <div className="container-narrow py-20">
         {/* Logo Card */}
-        <div className="flex justify-center mb-12">
-          <div className="bg-brand-bg-tertiary/90 backdrop-blur-sm rounded-2xl p-8 shadow-soft border border-white/20 animate-fade-in-up">
+        <div className="flex justify-center mb-6">
+          <div className="bg-brand-bg-tertiary/90 backdrop-blur-sm rounded-2xl p-8 shadow-soft border-2 border-[#E2E8E9] animate-fade-in-up">
             <img 
               src="/assets/logos/1.png" 
               alt="IngVox Logo" 
@@ -81,7 +81,7 @@ const Mission: React.FC = () => {
                 return (
                   <div 
                     key={index}
-                    className={`card group text-center p-10 relative overflow-hidden hover:animate-lift cursor-pointer transition-all duration-300 animate-fade-in-up stagger-${index + 1}`}
+                    className={`card group text-center p-10 relative overflow-hidden hover:animate-lift cursor-pointer transition-all duration-300 animate-fade-in-up stagger-${index + 1} border-2 border-[#E2E8E9]`}
                     style={{
                       background: index % 2 === 0 
                         ? 'linear-gradient(135deg, rgba(67, 145, 114, 0.08), rgba(248, 249, 249, 0.95))' 
@@ -116,7 +116,7 @@ const Mission: React.FC = () => {
                 return (
                   <div 
                     key={index + 2}
-                    className={`card group text-center p-8 hover:animate-lift cursor-pointer transition-all duration-300 animate-fade-in-up stagger-${index + 3}`}
+                    className={`card group text-center p-8 hover:animate-lift cursor-pointer transition-all duration-300 animate-fade-in-up stagger-${index + 3} border-2 border-[#E2E8E9]`}
                   >
                     <div className={`w-16 h-16 mx-auto mb-6 rounded-2xl bg-${value.color}/15 flex items-center justify-center group-hover:bg-${value.color}/25 transition-all duration-300 shadow-soft group-hover:animate-rotate-subtle`}>
                       <IconComponent className={`h-8 w-8 text-${value.color} transition-all duration-300 group-hover:scale-110`} />
@@ -135,7 +135,7 @@ const Mission: React.FC = () => {
         </div>
 
         {/* Vision Statement */}
-        <div className="vision-dark rounded-3xl p-8 md:p-12 mb-16 text-center relative overflow-hidden animate-fade-in-up">
+        <div className="vision-dark rounded-3xl p-8 md:p-12 mb-4 text-center relative overflow-hidden animate-fade-in-up">
           {/* Background pattern */}
           <div className="absolute inset-0 opacity-5">
             <div className="pattern-subtle w-full h-full"></div>
@@ -168,7 +168,7 @@ const Mission: React.FC = () => {
           </div>
           
           {/* Call to Action */}
-          <div className="mt-16">
+          <div className="mt-4">
             <a 
               href="#plans" 
               className="btn btn-dark btn-large group inline-flex items-center gap-3 hover:animate-lift"
