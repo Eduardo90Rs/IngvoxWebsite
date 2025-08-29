@@ -41,7 +41,7 @@ const Mission: React.FC = () => {
       <div className="container-narrow py-20">
         {/* Logo Card */}
         <div className="flex justify-center mb-6">
-          <div className="bg-brand-bg-tertiary/90 backdrop-blur-sm rounded-2xl p-8 shadow-soft border-2 border-[#E2E8E9] animate-fade-in-up">
+          <div className="bg-brand-bg-tertiary/90 backdrop-blur-sm rounded-2xl p-8 shadow-soft border border-[#222539] animate-fade-in-up">
             <img 
               src="/assets/logos/1.png" 
               alt="IngVox Logo" 
@@ -81,17 +81,15 @@ const Mission: React.FC = () => {
                 return (
                   <div 
                     key={index}
-                    className={`card group text-center p-10 relative overflow-hidden hover:animate-lift cursor-pointer transition-all duration-300 animate-fade-in-up stagger-${index + 1} border-2 border-[#E2E8E9]`}
+                    className={`card group text-center p-10 relative overflow-hidden hover:animate-lift cursor-pointer transition-all duration-300 animate-fade-in-up stagger-${index + 1} border border-[#222539]`}
                     style={{
-                      background: index % 2 === 0 
-                        ? 'linear-gradient(135deg, rgba(67, 145, 114, 0.08), rgba(248, 249, 249, 0.95))' 
-                        : 'linear-gradient(135deg, rgba(168, 153, 188, 0.08), rgba(248, 249, 249, 0.95))'
+                      background: 'linear-gradient(135deg, #F8F9F9, #E2E8E9)'
                     }}
                   >
                     <div 
                       className={`w-20 h-20 mx-auto mb-8 rounded-3xl bg-${value.color}/15 flex items-center justify-center group-hover:bg-${value.color}/25 transition-all duration-300 shadow-medium group-hover:animate-rotate-subtle`}
                       style={{
-                        background: `linear-gradient(135deg, ${value.color === 'brand-accent' ? 'rgba(67, 145, 114, 0.15)' : 'rgba(168, 153, 188, 0.15)'}, rgba(248, 249, 249, 0.9))`
+                        background: 'linear-gradient(135deg, rgba(248, 249, 249, 0.5), rgba(226, 232, 233, 0.5))'
                       }}
                     >
                       <IconComponent className={`h-10 w-10 text-${value.color} transition-all duration-300 group-hover:scale-110`} />
@@ -116,9 +114,17 @@ const Mission: React.FC = () => {
                 return (
                   <div 
                     key={index + 2}
-                    className={`card group text-center p-8 hover:animate-lift cursor-pointer transition-all duration-300 animate-fade-in-up stagger-${index + 3} border-2 border-[#E2E8E9]`}
+                    className={`card group text-center p-8 hover:animate-lift cursor-pointer transition-all duration-300 animate-fade-in-up stagger-${index + 3} border border-[#222539]`}
+                    style={{
+                      background: 'linear-gradient(135deg, #F8F9F9, #E2E8E9)'
+                    }}
                   >
-                    <div className={`w-16 h-16 mx-auto mb-6 rounded-2xl bg-${value.color}/15 flex items-center justify-center group-hover:bg-${value.color}/25 transition-all duration-300 shadow-soft group-hover:animate-rotate-subtle`}>
+                    <div 
+                      className={`w-16 h-16 mx-auto mb-6 rounded-2xl bg-${value.color}/15 flex items-center justify-center group-hover:bg-${value.color}/25 transition-all duration-300 shadow-soft group-hover:animate-rotate-subtle`}
+                      style={{
+                        background: 'linear-gradient(135deg, rgba(248, 249, 249, 0.5), rgba(226, 232, 233, 0.5))'
+                      }}
+                    >
                       <IconComponent className={`h-8 w-8 text-${value.color} transition-all duration-300 group-hover:scale-110`} />
                     </div>
                     <h4 className="font-montserrat font-semibold text-brand-text mb-4 text-mission-card">
