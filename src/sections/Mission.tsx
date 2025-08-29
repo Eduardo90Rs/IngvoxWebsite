@@ -37,7 +37,7 @@ const Mission: React.FC = () => {
 
 
   return (
-    <section className="section bg-brand-highlight pattern-subtle whyitworks-to-mission ambient-shadow-strong relative overflow-hidden">
+    <section className="section bg-brand-highlight pattern-subtle whyitworks-to-mission ambient-shadow-strong relative">
       <div className="container-narrow py-20">
         {/* Logo Card */}
         <div className="flex justify-center mb-6">
@@ -162,32 +162,16 @@ const Mission: React.FC = () => {
             </div>
           </div>
         </div>
-
-
-        {/* Slogan + CTA */}
-        <div className="text-center animate-fade-in-up">
-          <div className="inline-block mb-12">
-            <p className="text-4xl md:text-5xl font-bold text-brand-highlight mb-6 font-montserrat decorative-quote">
-              "Fluência que conversa com você."
-            </p>
-            <div className="h-1 w-32 bg-gradient-to-r from-brand-accent via-brand-highlight to-brand-accent mx-auto rounded-full"></div>
-          </div>
-          
-          {/* Call to Action */}
-          <div className="mt-4">
-            <a 
-              href="#plans" 
-              className="btn btn-dark btn-large group inline-flex items-center gap-3 hover:animate-lift"
-            >
-              Comece sua jornada
-              <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
-            </a>
-            <p className="body-small text-brand-text-muted mt-6 max-w-md mx-auto">
-              Descubra como nossa IA pode acelerar seu aprendizado de idiomas
-            </p>
-          </div>
-        </div>
       </div>
+      {/* Gradient overlay at bottom */}
+      <div 
+        className="absolute left-0 right-0 pointer-events-none"
+        style={{
+          bottom: '-10px',
+          height: '100px',
+          background: 'linear-gradient(to bottom, transparent, #F8F9F9)'
+        }}
+      />
     </section>
   );
 };
