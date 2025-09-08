@@ -11,7 +11,7 @@ const Navbar: React.FC = () => {
       setIsScrolled(window.scrollY > 10);
       
       // Update active section based on scroll position
-      const sections = ['how-it-works', 'languages', 'plans', 'faq'];
+      const sections = ['how-it-works', 'languages', 'why-it-works', 'mission', 'faq'];
       const currentSection = sections.find(section => {
         const element = document.getElementById(section);
         if (element) {
@@ -31,7 +31,8 @@ const Navbar: React.FC = () => {
   const navItems = [
     { href: '#how-it-works', label: 'Como Funciona', id: 'how-it-works' },
     { href: '#languages', label: 'Idiomas', id: 'languages' },
-    { href: '#plans', label: 'Preços', id: 'plans' },
+    { href: '#why-it-works', label: 'Vantagens', id: 'why-it-works' },
+    { href: '#mission', label: 'Missão', id: 'mission' },
     { href: '#faq', label: 'FAQ', id: 'faq' }
   ];
 
@@ -103,7 +104,7 @@ const Navbar: React.FC = () => {
             }}
             className="btn btn-lavender btn-small group"
           >
-            Teste Grátis
+            Comece Agora
           </a>
           
           <button 
