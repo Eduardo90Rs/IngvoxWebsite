@@ -76,32 +76,49 @@ const Languages: React.FC = () => {
       nativeName: 'Português',
       learners: '260M+ falantes'
     },
-  ];
-
-  const upcomingLanguages = [
     { 
       name: 'Hindi', 
       code: 'hi', 
       flag: '/assets/Flag_of_India_Flat_Round_Corner-128x128.png',
-      nativeName: 'हिन्दी'
-    },
-    { 
-      name: 'Urdu', 
-      code: 'ur', 
-      flag: '/assets/Flag_of_Pakistan_Flat_Round_Corner-128x128.png',
-      nativeName: 'اردو'
-    },
-    { 
-      name: 'Turco', 
-      code: 'tr', 
-      flag: '/assets/Flag_of_Turkey_Flat_Round_Corner-128x128.png',
-      nativeName: 'Türkçe'
+      nativeName: 'हिन्दी',
+      learners: '600M+ falantes'
     },
     { 
       name: 'Grego', 
       code: 'gr', 
       flag: '/assets/Flag_of_Greece_Flat_Round_Corner-128x128.png',
-      nativeName: 'Ελληνικά'
+      nativeName: 'Ελληνικά',
+      learners: '13M+ falantes'
+    },
+    { 
+      name: 'Turco', 
+      code: 'tr', 
+      flag: '/assets/Flag_of_Turkey_Flat_Round_Corner-128x128.png',
+      nativeName: 'Türkçe',
+      learners: '80M+ falantes'
+    },
+    { 
+      name: 'Holandês', 
+      code: 'nl', 
+      flag: '/assets/Flag_of_Netherlands_Flat_Round_Corner-128x128.png',
+      nativeName: 'Nederlands',
+      learners: '24M+ falantes'
+    },
+    { 
+      name: 'Tcheco', 
+      code: 'cz', 
+      flag: '/assets/Flag_of_Czech_Republic_Flat_Round_Corner-128x128.png',
+      nativeName: 'Čeština',
+      learners: '10M+ falantes'
+    },
+  ];
+
+  const upcomingLanguages = [
+    { 
+      name: 'Urdu', 
+      code: 'ur', 
+      flag: '/assets/Flag_of_Pakistan_Flat_Round_Corner-128x128.png',
+      nativeName: 'اردو'
     },
     { 
       name: 'Árabe', 
