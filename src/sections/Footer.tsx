@@ -1,5 +1,6 @@
 import React from 'react';
 import { Instagram, Mail } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Footer: React.FC = () => {
   return (
@@ -48,7 +49,7 @@ const Footer: React.FC = () => {
               <h3 className="font-montserrat font-bold text-lg text-brand-text mb-4">Legal</h3>
               <ul className="space-y-2 font-poppins">
                 <li><a href="#" className="text-[#222539] hover:text-[#222539]/80 transition-colors">Termos de Uso</a></li>
-                <li><a href="#" className="text-[#222539] hover:text-[#222539]/80 transition-colors">Privacidade</a></li>
+                <li><Link to="/privacy" className="text-[#222539] hover:text-[#222539]/80 transition-colors">Privacidade</Link></li>
                 <li><a href="#" className="text-[#222539] hover:text-[#222539]/80 transition-colors">Cookies</a></li>
               </ul>
             </div>

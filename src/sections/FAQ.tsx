@@ -17,10 +17,6 @@ const FAQ: React.FC = () => {
       question: 'Como funciona a IA?',
       answer: 'Nossa IA usa modelos de linguagem avançados treinados especificamente para o ensino de idiomas. Ela identifica seu nível, detecta erros, fornece correções contextualizadas e adapta as conversações para desafiar você progressivamente.'
     },
-    {
-      question: 'E se eu for iniciante total?',
-      answer: 'O IngVox é perfeito para iniciantes! A IA começa com frases simples, vocabulário básico e progride gradualmente. Ela também pode oferecer explicações em português quando necessário.'
-    }
   ];
 
   const toggleFaq = (index: number) => {

@@ -9,6 +9,7 @@ import FAQ from './sections/FAQ';
 import Footer from './sections/Footer';
 import ResetPassword from './components/ResetPassword';
 import ConfirmEmail from './components/ConfirmEmail';
+import PrivacyPolicy from './pages/PrivacyPolicy';
 
 // Componente da página principal
 const HomePage = () => (
@@ -36,6 +37,9 @@ function App() {
         
         {/* Rota isolada para confirmação de email - redirecionamento do app */}
         <Route path="/confirm-email" element={<ConfirmEmail />} />
+        
+        {/* Rota para Política de Privacidade */}
+        <Route path="/privacy" element={<PrivacyPolicy />} />
       </Routes>
     </Router>
   );
