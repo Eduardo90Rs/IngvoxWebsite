@@ -583,7 +583,7 @@ const PrivacyPolicy: React.FC = () => {
               <ul className="space-y-2 ml-4">
                 <li className="flex items-start">
                   <span className="text-[#A899BC] mr-2">•</span>
-                  <span className="text-gray-700">Email: suporte@ingvox.com</span>
+                  <span className="text-gray-700">Email: support@ingvox.com</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-[#A899BC] mr-2">•</span>
@@ -822,7 +822,7 @@ const PrivacyPolicy: React.FC = () => {
               <div className="flex items-center gap-2 mb-2">
                 <Mail className="h-4 w-4 text-[#A899BC]" />
                 <p className="text-gray-700">
-                  <strong>Email:</strong> suporte@ingvox.com
+                  <strong>Email:</strong> support@ingvox.com
                 </p>
               </div>
               <div className="flex items-center gap-2">
@@ -870,7 +870,7 @@ const PrivacyPolicy: React.FC = () => {
                 <div className="flex items-center gap-2">
                   <Mail className="h-4 w-4 text-[#A899BC]" />
                   <p className="text-gray-700">
-                    <strong>Email:</strong> suporte@ingvox.com
+                    <strong>Email:</strong> support@ingvox.com
                   </p>
                 </div>
                 <div className="flex items-center gap-2">

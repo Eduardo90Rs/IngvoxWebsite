@@ -10,6 +10,7 @@ import Footer from './sections/Footer';
 import ResetPassword from './components/ResetPassword';
 import ConfirmEmail from './components/ConfirmEmail';
 import PrivacyPolicy from './pages/PrivacyPolicy';
+import DeleteAccount from './pages/DeleteAccount';
 
 // Componente da página principal
 const HomePage = () => (
@@ -40,6 +41,9 @@ function App() {
         
         {/* Rota para Política de Privacidade */}
         <Route path="/privacy" element={<PrivacyPolicy />} />
+        
+        {/* Rota para Exclusão de Conta */}
+        <Route path="/delete-account" element={<DeleteAccount />} />
       </Routes>
     </Router>
   );
