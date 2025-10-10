@@ -48,7 +48,7 @@ const Hero: React.FC = () => {
           
           {/* Mockup Demo Column */}
           <div className="lg:col-span-7 relative">
-            <div className="max-w-lg mx-auto">
+            <div className="max-w-sm mx-auto">
               {/* Mockup Image */}
               <div className="relative overflow-hidden">
                 <img
