@@ -57,7 +57,6 @@ const Mission: React.FC = () => {
           <div className="max-w-4xl mx-auto decorative-quote">
             <p className="text-3xl md:text-4xl leading-tight font-montserrat mb-8">
               <span className="font-light text-white/90">Proporcionar fluência linguística real a qualquer pessoa, de forma </span>
-              <span className="font-light text-white/90">Proporcionar fluência linguística real a qualquer pessoa, de forma </span>
               <span className="font-bold text-brand-accent animate-fade-in-stagger stagger-1">divertida</span><span className="font-light text-white/90">, </span>
               <span className="font-medium text-white animate-fade-in-stagger stagger-2">tranquila </span>
               <span className="font-light text-white/90">e profundamente </span>
