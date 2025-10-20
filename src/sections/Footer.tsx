@@ -57,7 +57,7 @@ const Footer: React.FC = () => {
             <div>
               <h3 className="font-montserrat font-bold text-lg text-brand-text mb-4">Download</h3>
               <ul className="space-y-2 font-poppins">
-                <li><a href="#" className="text-[#222539] hover:text-[#222539]/80 transition-colors">App Store</a></li>
+                <li><a href="https://apps.apple.com/br/app/ingvox/id6753187230" target="_blank" rel="noopener noreferrer" className="text-[#222539] hover:text-[#222539]/80 transition-colors">App Store</a></li>
                 <li><a href="#" className="text-[#222539] hover:text-[#222539]/80 transition-colors">Google Play</a></li>
               </ul>
             </div>
