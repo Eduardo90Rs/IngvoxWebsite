@@ -1,5 +1,5 @@
 import React from 'react';
-import { Star, ArrowRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 const Hero: React.FC = () => {
   return (
@@ -25,24 +25,6 @@ const Hero: React.FC = () => {
                 Começar gratuitamente
                 <ArrowRight className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />
               </a>
-              
-              <div className="flex items-center gap-3">
-                <div className="flex -space-x-1">
-                  {[1, 2, 3].map(i => (
-                    <div key={i} className="w-8 h-8 rounded-full bg-brand-accent/20 border-2 border-brand-bg-primary overflow-hidden">
-                      <div className="w-full h-full bg-gradient-to-br from-brand-highlight to-brand-accent opacity-60"></div>
-                    </div>
-                  ))}
-                </div>
-                <div className="space-y-1">
-                  <div className="flex items-center gap-1">
-                    {[1, 2, 3, 4, 5].map(i => (
-                      <Star key={i} size={12} className="text-brand-accent fill-current" />
-                    ))}
-                  </div>
-                  <p className="body-small text-brand-text-muted">+10.000 usuários</p>
-                </div>
-              </div>
             </div>
           </div>
           
