@@ -1,6 +1,7 @@
 import React from 'react';
 import { Globe, MessageCircle, Lightbulb, GraduationCap, ArrowRight } from 'lucide-react';
 import { useScrollAnimation, useStaggerAnimation } from '../hooks/useScrollAnimation';
+import { Link } from 'react-router-dom';
 
 const HowItWorks: React.FC = () => {
   const titleRef = useScrollAnimation();
@@ -98,10 +99,10 @@ const HowItWorks: React.FC = () => {
         </div>
         
         <div ref={ctaRef} className="mt-20 text-center">
-          <a href="#plans" className="btn btn-lavender btn-large group">
+          <Link to="/stores" className="btn btn-lavender btn-large group">
             Começar minha jornada
             <ArrowRight className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />
-          </a>
+          </Link>
         </div>
       </div>
     </section>

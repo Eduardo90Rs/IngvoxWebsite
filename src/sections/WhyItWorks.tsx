@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const WhyItWorks: React.FC = () => {
   const reasons = [
@@ -40,9 +41,9 @@ const WhyItWorks: React.FC = () => {
         </div>
         
         <div className="mt-16 text-center">
-          <a href="#plans" className="btn btn-lavender">
+          <Link to="/stores" className="btn btn-lavender">
             Experimentar agora
-          </a>
+          </Link>
         </div>
       </div>
     </section>

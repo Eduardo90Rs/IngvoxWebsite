@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { Check } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const Pricing: React.FC = () => {
   const [isAnnual, setIsAnnual] = useState(true);
+  const navigate = useNavigate();
   
   const plans = [
     {
@@ -157,15 +159,16 @@ const Pricing: React.FC = () => {
                 </div>
                 
                 {/* CTA Button */}
-                <button 
+                <button
+                  onClick={() => navigate('/stores')}
                   className={`btn w-full ${
-                    plan.highlight 
-                      ? 'btn-lavender' 
+                    plan.highlight
+                      ? 'btn-lavender'
                       : 'btn-secondary'
                   }`}
                 >
-                  {index === 0 
-                    ? 'Teste grátis por 7 dias' 
+                  {index === 0
+                    ? 'Começar Básico'
                     : plan.highlight
                     ? 'Começar Premium'
                     : 'Começar Pro'}

@@ -11,6 +11,7 @@ import ResetPassword from './components/ResetPassword';
 import ConfirmEmail from './components/ConfirmEmail';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import DeleteAccount from './pages/DeleteAccount';
+import Stores from './pages/Stores';
 
 // Componente da página principal
 const HomePage = () => (
@@ -44,6 +45,9 @@ function App() {
         
         {/* Rota para Exclusão de Conta */}
         <Route path="/delete-account" element={<DeleteAccount />} />
+
+        {/* Rota para página de Stores */}
+        <Route path="/stores" element={<Stores />} />
       </Routes>
     </Router>
   );
