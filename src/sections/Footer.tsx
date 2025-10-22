@@ -26,10 +26,10 @@ const Footer: React.FC = () => {
             </div>
             
             <div className="flex space-x-4 mt-6">
-              <a href="#" className="text-[#222539] hover:text-[#222539]/80 transition-colors">
+              <a href="https://www.instagram.com/ingvox?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" className="text-[#222539] hover:text-[#222539]/80 transition-colors">
                 <Instagram className="h-6 w-6" />
               </a>
-              <a href="mailto:contato@ingvox.com" className="text-[#222539] hover:text-[#222539]/80 transition-colors">
+              <a href="mailto:support@ingvox.com" className="text-[#222539] hover:text-[#222539]/80 transition-colors">
                 <Mail className="h-6 w-6" />
               </a>
             </div>
